@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `ino` int(5) NOT NULL COMMENT '商品番号',
   `csum` int(3) NOT NULL COMMENT '数量',
   PRIMARY KEY (`cno`),
-  KEY `mno` (`mno`,`ino`),
+  KEY `mno` (`mno`),
   KEY `ino` (`ino`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='カートデータが格納されている。非会員はセッションにカートを保持する。' AUTO_INCREMENT=1 ;
 
@@ -90,11 +90,10 @@ CREATE TABLE IF NOT EXISTS `line` (
   `ino` int(5) NOT NULL COMMENT '商品番号',
   `lprice` int(6) NOT NULL COMMENT '単価',
   `lsum` int(6) NOT NULL COMMENT '数量',
-  `lpt` int(6) DEFAULT NULL COMMENT 'ポイント数',
+  `lpt` int(6) DEFAULT NULL DEFAULT '0' COMMENT 'ポイント数',
   PRIMARY KEY (`lno`),
-  KEY `ono` (`ono`,`ino`),
+  KEY `ono` (`ono`),
   KEY `ino` (`ino`),
-  KEY `ino_2` (`ino`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='注文明細データが格納されている。' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -168,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `mno` int(7) NOT NULL COMMENT '会員番号',
   `ino` int(5) NOT NULL COMMENT '商品番号',
   PRIMARY KEY (`rno`),
-  KEY `mno` (`mno`,`ino`),
+  KEY `mno` (`mno`),
   KEY `ino` (`ino`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='レビューデータが格納されている。レビューは会員のみ投稿できる。' AUTO_INCREMENT=1 ;
 
