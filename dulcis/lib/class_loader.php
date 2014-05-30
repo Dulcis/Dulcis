@@ -45,10 +45,12 @@
          */
         private static function directories() {
             if (empty(self::$dirs)) {
-                $base = "/lib";
+                $base = "./";
                 self::$dirs = array(
                     // ここに読み込んでほしいディレクトリを足していきます
-                    $base
+                    $base . 'lib/',
+                    $base . 'app/classes/model/',
+                    $base . 'app/view/'
                 );
             }
 
