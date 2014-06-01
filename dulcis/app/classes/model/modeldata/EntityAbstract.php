@@ -5,12 +5,12 @@
      * Date: 14/05/30
      * Time: 18:05
      */
-    namespace modeldata;
+    namespace model\modeldata;
 
     /**
      * Class AbstractEntity
      *
-     * エンティティオブジェクトの抽象クラス
+     * エンティティの抽象クラス
      *
      * @package modeldata
      */

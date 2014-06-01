@@ -1,0 +1,19 @@
+{
+    "name": "Dulcis/Dulcis",
+    "description": "Dulcis is electronic commerce site",
+    "homepage": "https://github.com/Dulcis/Dulcis",
+    "license": "MIT",
+    "authors": [
+        { "name": "Dulcis" }
+    ],
+    "repositories": [
+        {
+            "packagist": false
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dulcis\\Dulcis\\": "dulcis/app/classes/"
+        }
+    }
+}

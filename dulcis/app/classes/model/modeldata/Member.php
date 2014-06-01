@@ -13,7 +13,7 @@
     /**
      * Class Member
      *
-     * 顧客エンティティオブジェクトです。
+     * 顧客エンティティです。
      *
      * @package modeldata
      * @author  dora56
@@ -186,7 +186,7 @@
 
             // TODO: Implement setPostNum() method.
             if (!preg_match('/^\d{3}\-\d{4}$/', $postnum)) {
-                throw new InvalidArgumentException("無効なメールアドレスです。");
+                throw new InvalidArgumentException("無効な郵便番号です。");
             }
             $this->_postnum = $postnum;
 
