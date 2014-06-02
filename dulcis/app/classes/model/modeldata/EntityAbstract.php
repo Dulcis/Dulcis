@@ -7,6 +7,8 @@
      */
     namespace Dulcis\Dulcis\model\modeldata;
 
+    use InvalidArgumentException;
+
     /**
      * Class AbstractEntity
      *
@@ -32,7 +34,7 @@
 
             return (method_exists($this, $accessor) &&
                 is_callable(array($this, $accessor)))
-                ? $this->$accessor() : $this->field;
+                ? $this->$accessor() : $this->$field;
         }
 
         /**
