@@ -5,7 +5,7 @@
      * Date: 14/05/30
      * Time: 18:05
      */
-    namespace model\modeldata;
+    namespace Dulcis\Dulcis\model\modeldata;
 
     /**
      * Class AbstractEntity

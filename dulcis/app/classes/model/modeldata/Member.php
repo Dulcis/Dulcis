@@ -5,7 +5,7 @@
      * Date: 14/05/30
      * Time: 20:03
      */
-    namespace modeldata;
+    namespace Dulcis\Dulcis\model\modeldata;
 
     use BadMethodCallException;
     use InvalidArgumentException;

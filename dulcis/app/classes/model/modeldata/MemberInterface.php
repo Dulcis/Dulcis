@@ -5,7 +5,7 @@
      * Date: 14/05/30
      * Time: 19:37
      */
-    namespace modeldata;
+    namespace Dulcis\Dulcis\model\modeldata;
 
     /**
      * Interface MemberInterface
