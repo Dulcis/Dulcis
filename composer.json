@@ -6,13 +6,8 @@
     "authors": [
         { "name": "Dulcis" }
     ],
-    "repositories": [
-        {
-            "packagist": false
-        }
-    ],
     "require-dev": {
-        "phpunit/phpunit-skeleton-generator": "*"
+        "phpunit/phpunit-skeleton-generator": "2.0.1"
     },
     "autoload": {
         "psr-4": {

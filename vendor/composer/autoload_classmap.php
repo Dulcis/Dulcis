@@ -6,4 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\AbstractGenerator' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/AbstractGenerator.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\CLI\\Application' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/CLI/Application.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\CLI\\BaseCommand' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/CLI/BaseCommand.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\CLI\\GenerateClassCommand' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/CLI/GenerateClassCommand.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\CLI\\GenerateTestCommand' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/CLI/GenerateTestCommand.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\ClassGenerator' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/ClassGenerator.php',
+    'SebastianBergmann\\PHPUnit\\SkeletonGenerator\\TestGenerator' => $vendorDir . '/phpunit/phpunit-skeleton-generator/src/TestGenerator.php',
+    'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
 );
