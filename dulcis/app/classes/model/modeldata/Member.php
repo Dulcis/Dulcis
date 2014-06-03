@@ -6,7 +6,11 @@
      * Time: 20:03
      */
     namespace Dulcis\Dulcis\model\modeldata;
-
+    
+    require_once(dirname(__FILE__).'/../../../../../vendor/autoload.php');
+    
+    use Dulcis\Dulcis\model\modeldata\EntityAbstract;
+    use Dulcis\Dulcis\model\modeldata\MemberInterface;
     use BadMethodCallException;
     use InvalidArgumentException;
 

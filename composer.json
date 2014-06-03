@@ -11,6 +11,9 @@
             "packagist": false
         }
     ],
+    "require-dev": {
+        "phpunit/phpunit-skeleton-generator": "*"
+    },
     "autoload": {
         "psr-4": {
             "Dulcis\\Dulcis\\": "dulcis/app/classes/"
