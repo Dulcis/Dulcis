@@ -10,7 +10,7 @@
     /**
      * Interface MemberInterface
      *
-     * @package modeldata
+     * @package Dulcis\Dulcis\model\modeldata
      *
      * @author  dora56
      */
