@@ -6,6 +6,9 @@
  */
 namespace Dulcis\Dulcis\model\modeldata;
 
+use Dulcis\Dulcis\model\modeldata\MemberInterface;
+use Dulcis\Dulcis\model\modeldata\ItemEntityInterface;
+
 /**
  *Interface CartEntityInterface
  * 
@@ -18,11 +21,11 @@ interface CartEntityInterface {
 public function setId($id);
 public function getId();
 
-public function setMemberId($memberId);
-public function getMemberId();
+public function setMember(MemberInterface $member);
+public function getMember();
 
-public function setItemId($itemId);
-public function getItemId();
+public function setItem(ItemEntityInterface $item);
+public function getItem();
 
 public function setQuantity($quantity);
 public function getQuantity();

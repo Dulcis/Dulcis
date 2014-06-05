@@ -21,18 +21,24 @@
     class CartEntity extends EntityAbstract implements CartEntityInterface {
 
         protected $_id;
-        protected $_memberId;
-        protected $_itemId;
+        protected $_member;
+        protected $_item;
         protected $_quantity;
 
-        public function __construct($id, $memberId, $itemId, $quantity) {
+        public function __construct(MemberInterface $member, ItemEntityInterface $item, $quantity) {
 
-            $this->setId($id);
-            $this->setMemberId($memberId);
-            $this->getItemId($itemId);
+            $this->setMember($member);
+            $this->getItem($item);
             $this->setQuantity($quantity);
         }
 
+        /**
+         * @param $id
+         *
+         * @return $this
+         * @throws \InvalidArgumentException
+         * @throws \BadMethodCallException
+         */
         public function setId($id) {
             if ($this->_id !== null) {
                 throw new BadMethodCallException(
@@ -50,20 +56,38 @@
             return $this->_id;
         }
 
-        public function setMemberId($memberId) {
+        /**
+         * @param MemberInterface $member
+         *
+         * @return $this
+         */
+        public function setMember(MemberInterface $member) {
 
+            $this->_member = $member;
+            return $this;
         }
 
-        public function getMemberId() {
-            return $this->_memberId;
+        public function getMember() {
+            return $this->_member;
         }
 
-        public function setItemId($itemId) {
+        /**
+         * @param ItemEntityInterface $item
+         *
+         * 商品エンティティを格納
+         *
+         * 商品の参照をしやすくする。
+         *
+         * @return $this
+         */
+        public function setItem(ItemEntityInterface $item) {
 
+            $this->_item = $item;
+            return $this;
         }
 
-        public function getItemId() {
-            return $this->_itemId;
+        public function getItem() {
+            return $this->_item;
         }
 
         public function setQuantity($quantity) {
