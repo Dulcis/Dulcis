@@ -15,16 +15,16 @@ namespace Dulcis\Dulcis\model\modeldata;
  */
 interface CartEntityInterface {
     
-public function setId();
+public function setId($id);
 public function getId();
 
-public function setMemberId();
+public function setMemberId($memberId);
 public function getMemberId();
 
-public function setItemId();
+public function setItemId($itemId);
 public function getItemId();
 
-public function setQuantity();
+public function setQuantity($quantity);
 public function getQuantity();
 
 }
