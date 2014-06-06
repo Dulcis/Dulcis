@@ -7,56 +7,56 @@
 <body>
 
 <?php
-// ƒZƒbƒVƒ‡ƒ“‚ÌŠJn
+// ã‚»ãƒƒã‚·ãƒ§ãƒ³ã®é–‹å§‹
 session_start();
 
 
 if (!isset($_SESSION["genre"])){
-//genre‚ÌƒZƒbƒVƒ‡ƒ“‚ª‚È‚¢ê‡
+//genreã®ã‚»ãƒƒã‚·ãƒ§ãƒ³ãŒãªã„å ´åˆ
 
 	
-//iniƒtƒ@ƒCƒ‹‚ğŒ©‚éì‹Æ@iniƒtƒ@ƒCƒ‹‚Éƒf[ƒ^ƒx[ƒX‚ÌƒAƒNƒZƒX‚Å‚«‚é‚æ‚¤‚Éİ’è‚µ‚Ä‚¢‚é
+//iniãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¦‹ã‚‹ä½œæ¥­ã€€iniãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹ã‚ˆã†ã«è¨­å®šã—ã¦ã„ã‚‹
 ini_set('include_path','/jyoko3dev/xampp/htdocs/app/classes/');
 require_once('db.php');
 
-// ƒf[ƒ^‚Ìæ“¾ genre‚©‚çƒf[ƒ^‚ğgno‡‚ÉŒŸõ
+// ãƒ‡ãƒ¼ã‚¿ã®å–å¾— genreã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’gnoé †ã«æ¤œç´¢
 $sql = "SELECT * FROM genre ORDER BY gno";
 $result = mysqli_query($dbc,$sql);
 mysqli_close($dbc);
 
 
-// æ“¾‚µ‚½ƒf[ƒ^‚ğˆê——•\¦
+// å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’ä¸€è¦§è¡¨ç¤º
 while($row = mysqli_fetch_array($result)){
 	
-	//ƒZƒbƒVƒ‡ƒ“‚É2ŸŒ³”z—ñ‚ÅŠi”[
+	//ã‚»ãƒƒã‚·ãƒ§ãƒ³ã«2æ¬¡å…ƒé…åˆ—ã§æ ¼ç´
 	$_SESSION['genre'][$row['gno']]=array(
-		//htmlspecialchars‚ÅƒGƒ“ƒR[ƒh‚ğ‚µ‚½’l‚ğ‚»‚ê‚¼‚ê‚ÉŠi”[
+		//htmlspecialcharsã§ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã‚’ã—ãŸå€¤ã‚’ãã‚Œãã‚Œã«æ ¼ç´
 		'genre_id' => htmlspecialchars($row['gno'],ENT_QUOTES, "UTF-8"),
 		'genre_name' => htmlspecialchars($row['gname'], ENT_QUOTES, "UTF-8")
 	);
 }
-	//”z—ñ‚Ì’l‚ğæ“ª‚©‚çŒÄ‚Ño‚·
+	//é…åˆ—ã®å€¤ã‚’å…ˆé ­ã‹ã‚‰å‘¼ã³å‡ºã™
 	foreach ($_SESSION['genre'] as $genre_id => $genre) {
     
 		$genre_id = $genre['genre_id'];
 		$genre_name =$genre['genre_name'];
 		
-		//’l‚ğ•\¦‚·‚é
+		//å€¤ã‚’è¡¨ç¤ºã™ã‚‹
 		echo "<p>".$genre_id."".$genre_name."</p>";
 	
 	}
 	
 }else{
-//genre‚ÌƒZƒbƒVƒ‡ƒ“‚ª‚ ‚éê‡
+//genreã®ã‚»ãƒƒã‚·ãƒ§ãƒ³ãŒã‚ã‚‹å ´åˆ
 
-	//genre‚ÌƒZƒbƒVƒ‡ƒ“‚É“ü‚Á‚Ä‚¢‚é”z—ñ‚Ì’l‚ğæ“ª‚©‚çŒÄ‚Ño‚·
+	//genreã®ã‚»ãƒƒã‚·ãƒ§ãƒ³ã«å…¥ã£ã¦ã„ã‚‹é…åˆ—ã®å€¤ã‚’å…ˆé ­ã‹ã‚‰å‘¼ã³å‡ºã™
 	foreach ($_SESSION['genre'] as $genre_id => $genre) {
     
 		$genre_id = $genre['genre_id'];
 		$genre_name =$genre['genre_name'];
 		
-		//ƒŠƒ“ƒN‚ğ’£‚Á‚½‚à‚Ì‚ğ•\¦‚·‚é
-		echo "<p><a href=\"ƒŠƒ“ƒN‚ğêŠ" . $genre_id . "\">"
+		//ãƒªãƒ³ã‚¯ã‚’å¼µã£ãŸã‚‚ã®ã‚’è¡¨ç¤ºã™ã‚‹
+		echo "<p><a href=\"ãƒªãƒ³ã‚¯ã‚’å ´æ‰€" . $genre_id . "\">"
 		.$genre_id."".$genre_name."</a></p>";
 	
 	}
