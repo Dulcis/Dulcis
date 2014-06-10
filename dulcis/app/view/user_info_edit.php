@@ -9,14 +9,14 @@
 
 	<?php
 		//データベースに接続
-		ini_set('include_path', '/xampp/htdocs/app/classes/');
+		require_once('include_path.php');
 		require_once('db.php');
 		require_once('session_start.php');
 		echo '<p>会員情報変更画面</p>';
 		if(isset($_SESSION['user_id'])) {
 			//ユーザがログインしている場合（会員状態時）
-			if(isset($_POST['fase1']) || isset($_POST['fase2']) || isset($_POST['fase3'])) {
-				//確認ボタン、変更ボタン、更新ボタンが押されたとき
+			if(isset($_POST['fase1']) || isset($_POST['fase2']) || isset($_POST['fase3']) || isset($_POST['fase4']) || isset($_POST['fase5'])) {
+				//確認ボタン、変更ボタン、更新ボタン、削除ボタンが押されたとき
 				//フォームからデータの取得
 				$user_id = $_POST['user_id'];
 				$user_name = $_POST['user_name'];
@@ -47,7 +47,7 @@
 				
 				if(isset($_POST['fase1'])) {
 					//確認ボタンが押されたとき
-					echo '<p>以下の内容に変更します。よろしいですか？</p>';
+					echo '<p>以下の内容に更新します。よろしいですか？</p>';
 					echo '<form action="user_info_edit.php" method="POST">';
 						echo '<input type="hidden" name="user_id" value="' . $user_id . '" />';
 						echo'<p>氏名：' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
@@ -58,7 +58,7 @@
 						echo'<p>電話番号：' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
 						echo'<p>クレジットカード番号：' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
 						echo'<input type="submit" value="変更" name="fase2" />';
-						echo'<input type="submit" value="更新" name="fase3" />';
+						echo'<input type="submit" value="確定" name="fase3" />';
 					echo'</form>';
 				} else if(isset($_POST['fase2']) || $flg == 1) {
 					//変更ボタンが押されたとき、または入力項目に誤りがあった場合
@@ -79,7 +79,6 @@
 						echo'<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" maxlength="" required /></p>';
 						echo'<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="" required /></p>';
 						echo'<input type="submit" value="確認" name="fase1" />';
-						echo'<input type="reset" value="リセット" name="fase2" />';
 					echo'</form>';
 				} else if(isset($_POST['fase3'])) {
 					//更新ボタンが押されたとき
@@ -112,12 +111,55 @@
 						} else {
 							//処理完了とお知らせ
 							require_once('session_out.php');
-							echo'<p>会員情報の更新が完了しました。</p>';
-							echo'<p>トップページへ戻り、ログインしてください。</p>';
+							echo '<p>会員情報の更新が完了しました。</p>';
+							echo '<p>トップページへ戻り、ログインしてください。</p>';
 						}
 					}
-					//セッションを切る
+					//トップ画面へのリンク
+					echo'<a href="index.php">トップへ戻る</a>';
+				} else if(isset($_POST['fase4'])) {
+					//削除ボタンが押されたとき
+					//セッションから会員情報を取得
+					$user_id = $_SESSION['user_id'];
+					$user_name = $_SESSION['user_name'];
+					$user_mailadd = $_SESSION['user_mailadd'];
+					$user_post = $_SESSION['user_post'];
+					$user_add = $_SESSION['user_add'];
+					$user_tel = $_SESSION['user_tel'];
+					$user_card = $_SESSION['user_card'];
+					echo '<p>以下の会員情報を削除し、退会します。よろしいですか？</p>';
+					echo '<form action="user_info_edit.php" method="POST">';
+						echo '<input type="hidden" name="user_id" value="' . $user_id . '" />';
+						echo'<p>氏名：' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
+						echo'<p>メールアドレス：' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
+						echo'<p>パスワード：' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
+						echo'<p>郵便番号：' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /></p>';
+						echo'<p>住所：' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
+						echo'<p>電話番号：' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
+						echo'<p>クレジットカード番号：' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
+						echo'<input type="submit" value="キャンセル" name="cancel" />';
+						echo'<input type="submit" value="確定" name="fase5" />';
+					echo'</form>';
+				} else if(isset($_POST['fase5'])) {
+					//確定ボタンが押されたとき
+					//SQL文の格納、実行（DELETE）
+					$query = "DELETE FROM member WHERE mno = '$user_id'";
+					$result = mysqli_query($dbc, $query);
+					//自分自身を検索
+					$query = "select mmail from member where mmail = '$user_mailadd' and mpass = '$user_pw'";
+					$result = mysqli_query($dbc, $query);
+					//データベースとの接続を切断
+					mysqli_close($dbc);
 					
+					if(mysqli_num_rows($result)) {
+						//delete処理失敗時の処理
+						echo 'データの削除に失敗しました。しばらくお待ちの上再度お試し下さい。';
+					} else {
+						//処理完了のお知らせ
+						require_once('session_out.php');
+						echo '<p>退会処理が完了しました。</p>';
+						echo '<p>またのご利用をお待ちしております。</p>';
+					}
 					//トップ画面へのリンク
 					echo'<a href="index.php">トップへ戻る</a>';
 				}
@@ -141,7 +183,8 @@
 					echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" maxlength="" required /></p>';
 					echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" maxlength="" required /></p>';
 					echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="" required /></p>';
-					echo '<input type="submit" value="確認" name="fase1" />';
+					echo '<input type="submit" value="更新" name="fase1" />';
+					echo '<input type="submit" value="削除" name="fase4" />';
 				echo '</form>';
 			}
 		} else {
