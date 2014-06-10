@@ -8,7 +8,7 @@
 <body>
 	<?php
 		//データベースに接続
-		ini_set('include_path', '/xampp/htdocs/app/classes/');
+		require_once('include_path.php');
 		require_once('db.php');
 		require_once('session_start.php');
 		echo '<p>会員情報登録画面</p>';
@@ -68,7 +68,7 @@
 					echo '<form action="user_entry.php" method="POST">';
 						echo'<p>氏名：<input type="text" name="user_name" value="' . $user_name . '" maxlength="" required /></p>';
 						echo'<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="" required /></p>';
-						echo'<p>パスワード：<input type="password" name="user_pw" value="' . $user_pw . '" maxlength="" required /></p>';
+						echo'<p>パスワード：<input type="password" name="user_pw" maxlength="" required /></p>';
 						echo'<p>パスワード（確認）：<input type="password" name="user_pwch" maxlength="" required /></p>';
 						echo'<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="" required /></p>';
 						echo'<p>住所：<input type="text" name="user_add" value="' . $user_add . '" maxlength="" required /></p>';
@@ -80,7 +80,7 @@
 				} else if(isset($_POST['fase3'])) {
 					//登録ボタンが押されたとき
 					//（※実装時はテーブル名の修正が必要）
-					$query = "select mmail from test where mmail = '$user_mailadd'";
+					$query = "select mmail from member where mmail = '$user_mailadd'";
 					$result = mysqli_query($dbc, $query);
 					
 					if(mysqli_num_rows($result) == 1) {
@@ -89,13 +89,13 @@
 					} else {
 						//通常時の処理
 						//SQL文格納（INSERT）（※実装時はテーブル名の修正が必要）
-						$query = "INSERT INTO test(mpass, mmail, mname, mpost, maddress, mtel, mcard) 
+						$query = "INSERT INTO member(mpass, mmail, mname, mpost, maddress, mtel, mcard) 
 								VALUE ('$user_pw', '$user_mailadd', '$user_name', '$user_post', '$user_add', '$user_tel', '$user_card')";
 						//SQL文実行
 						$result = mysqli_query($dbc, $query);
 						
 						//自分自身を検索
-						$query = "select mmail from test where mmail = '$user_mailadd' and mpass = '$user_pw'";
+						$query = "select mmail from member where mmail = '$user_mailadd' and mpass = '$user_pw'";
 						$result = mysqli_query($dbc, $query);
 						
 						//データベースとの接続を切断
