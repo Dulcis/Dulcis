@@ -6,7 +6,7 @@
      * Time: 1:10
      */
 
-    namespace Dulcis\Dulcis\model\Entity;
+    namespace Dulcis\Dulcis\model\entity\base;
 
 
     use InvalidArgumentException;

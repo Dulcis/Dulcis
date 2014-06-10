@@ -6,8 +6,11 @@
      * Time: 1:20
      */
 
-    namespace Dulcis\Dulcis\model\Entity;
+    namespace Dulcis\Dulcis\model\entity\membars;
 
+    require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
+
+    use Dulcis\Dulcis\model\entity\base\EntityAbstract;
 
     class Member extends EntityAbstract {
 
