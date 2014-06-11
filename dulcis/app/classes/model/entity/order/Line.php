@@ -16,9 +16,7 @@ use Dulcis\Dulcis\model\entity\base\EntityAbstract;
  */
 class Line extends EntityAbstract{
     
-    protected $allowedFields = array('ono', 'lno', 'oname', 'omail', 'opost', 
-                                     'omail', 'oaddress','otel','ocard','odate',
-                                     'osum', 'opt');
+    protected $allowedFields = array('ono', 'lno', 'ino','lprice', 'lsum', 'lpt');
     
     public function setOno($ono){
         if (isset($this->fields["ono"])) {
@@ -45,7 +43,7 @@ class Line extends EntityAbstract{
             return $this;
     }
     
-    public function getIno($ino){
+    public function setIno($ino){
         if (isset($this->fields["ino"])) {
                 throw new BadMethodCallException(
                     "The 商品番号 for this user has been set already.");
@@ -57,5 +55,26 @@ class Line extends EntityAbstract{
             $this->fields['ino'] = $ino;
 
             return $this; 
+    }
+    
+    public function setLprice($lprice){
+        
+        $this->fields['lprice'] = $lprice;
+
+            return $this; 
+    }
+    
+    public function setLsum($lsum){
+        
+         $this->fields['lsum'] = $lsum;
+
+        return $this;
+    }
+    
+    public function setLpt($lpt){
+        
+         $this->fields['lpt'] = $lpt;
+
+        return $this;
     }
 }
