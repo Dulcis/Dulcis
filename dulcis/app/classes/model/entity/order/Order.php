@@ -1,40 +1,46 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-namespace Dulcis\Dulcis\model\entity\order;
+    /*
+     * To change this license header, choose License Headers in Project Properties.
+     * To change this template file, choose Tools | Templates
+     * and open the template in the editor.
+     */
+    namespace Dulcis\Dulcis\model\entity\order;
 
-require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
+    require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 
-use Dulcis\Dulcis\model\entity\base\EntityAbstract;
-/**
- * Description of Order
- *
- * @author student
- */
-class Order extends EntityAbstract{
-    protected $allowedFields = array('ono', 'mno', 'oname', 'omail', 'opost', 
-                                     'omail', 'oaddress','otel','ocard','odate',
-                                     'osum', 'opt');
-    
-    public function setOno($ono){
-        if (isset($this->fields["ono"])) {
+    use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    /**
+     * Description of Order
+     *
+     * @author student
+     */
+    class Order extends EntityAbstract{
+        protected $allowedFields = array('ono', 'mno', 'oname', 'omail', 'opost',
+            'omail', 'oaddress','otel','ocard','odate',
+            'osum', 'opt');
+
+        public function setOno($ono){
+            if (isset($this->fields["ono"])) {
                 throw new BadMethodCallException(
                     "The 商品番号 for this user has been set already.");
-        }
-        if (!is_int($ono) || $ono < 1) {
+            }
+            if (!is_int($ono) || $ono < 1) {
                 throw new InvalidArgumentException(
                     "The 商品番号 is invalid.");
             }
             $this->fields['ono'] = $ono;
 
             return $this;
-    }
-    
-    public function setMno($mno) {
-        
+        }
+
+        /**
+         * @param $mno
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
+        public function setMno($mno) {
+
             if (!is_int($mno) || $mno < 1) {
                 throw new InvalidArgumentException(
                     "The user ID is invalid.");
@@ -42,9 +48,15 @@ class Order extends EntityAbstract{
             $this->fields["mno"] = $mno;
 
             return $this;
-    }
-    
-     public function setOname($oname) {
+        }
+
+        /**
+         * @param $oname
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
+        public function setOname($oname) {
 
             if (strlen($oname) < 1 || strlen($oname) > 20) {
                 throw new InvalidArgumentException("名前の文字数が無効です。");
@@ -54,6 +66,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $omail
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setOmail($omail) {
 
             if (!filter_var($omail, FILTER_VALIDATE_EMAIL)) {
@@ -64,6 +82,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $opost
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setOpost($opost) {
 
             if (!preg_match('/^\d{3}\-\d{4}$/', $opost)) {
@@ -74,6 +98,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $oaddress
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setoaddress($oaddress) {
 
             if (!is_string($oaddress) || strlen($oaddress) < 1 || strlen($oaddress) > 100) {
@@ -84,6 +114,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $otel
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setOtel($otel) {
 
             if (!preg_match('/^0\d{8,12}$/', $otel)) {
@@ -94,6 +130,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $ocard
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setOcard($ocard) {
 
             if (!preg_match("/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}
@@ -106,9 +148,13 @@ class Order extends EntityAbstract{
 
             return $this;
         }
-        
+        /***
+         * @param $osum
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setoSum($osum){
-            
+
             if (!is_int($osum)) {
                 throw new InvalidArgumentException("整数を入力してください。");
             }
@@ -117,6 +163,12 @@ class Order extends EntityAbstract{
             return $this;
         }
 
+        /**
+         * @param $opt
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setOpt($opt) {
 
             if (!is_int($opt)) {
@@ -126,4 +178,4 @@ class Order extends EntityAbstract{
 
             return $this;
         }
-}
+    }

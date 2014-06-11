@@ -12,10 +12,24 @@
 
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
 
+    /**
+     * Class Member
+     *
+     * @package Dulcis\Dulcis\model\entity\membars
+     *
+     * @author dora56
+     */
     class Member extends EntityAbstract {
 
         protected $allowedFields = array('mno', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
 
+        /**
+         * @param $mno
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         * @throws BadMethodCallException
+         */
         public function setMno($mno) {
 
             if (isset($this->fields["mno"])) {
@@ -31,6 +45,12 @@
             return $this;
         }
 
+        /**
+         * @param $mpass
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMpass($mpass) {
 
             if (!preg_match("/^[a-zA-Z0-9]+$/", $mpass) || $mpass < 1 || $mpass > 7) {
@@ -41,6 +61,12 @@
             return $this;
         }
 
+        /**
+         * @param $mname
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMname($mname) {
 
             if (strlen($mname) < 1 || strlen($mname) > 20) {
@@ -51,6 +77,12 @@
             return $this;
         }
 
+        /**
+         * @param $mmail
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMmail($mmail) {
 
             if (!filter_var($mmail, FILTER_VALIDATE_EMAIL)) {
@@ -61,6 +93,12 @@
             return $this;
         }
 
+        /**
+         * @param $mpost
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMpost($mpost) {
 
             if (!preg_match('/^\d{3}\-\d{4}$/', $mpost)) {
@@ -71,6 +109,12 @@
             return $this;
         }
 
+        /**
+         * @param $maddress
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMaddress($maddress) {
 
             if (!is_string($maddress) || strlen($maddress) < 1 || strlen($maddress) > 100) {
@@ -81,6 +125,12 @@
             return $this;
         }
 
+        /**
+         * @param $mtel
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMtel($mtel) {
 
             if (!preg_match('/^0\d{8,12}$/', $mtel)) {
@@ -91,6 +141,12 @@
             return $this;
         }
 
+        /**
+         * @param $mpt
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMpt($mpt) {
 
             if (!is_int($mpt)) {
@@ -101,6 +157,12 @@
             return $this;
         }
 
+        /**
+         * @param $mcard
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
         public function setMcard($mcard) {
 
             if (!preg_match("/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}

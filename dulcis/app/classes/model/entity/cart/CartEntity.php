@@ -1,21 +1,28 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-namespace Dulcis\Dulcis\model\entity\cart;
+    /*
+     * To change this license header, choose License Headers in Project Properties.
+     * To change this template file, choose Tools | Templates
+     * and open the template in the editor.
+     */
+    namespace Dulcis\Dulcis\model\entity\cart;
 
-/**
- * Description of CartEntity
- *
- * @author dora56
- */
-class CartEntity extends EntityAbstract{
-    
-    protected $allowedFields = array('cno', 'mno', 'ino', 'csum');
-    
-    public function setCno($cno) {
+    /**
+     * Description of CartEntity
+     *
+     * @author dora56
+     */
+    class CartEntity extends EntityAbstract{
+
+        protected $allowedFields = array('cno', 'mno', 'ino', 'csum');
+
+        /**
+         * @param $cno
+         *
+         * @return $this
+         * @throws BadMethodCallException
+         * @throws InvalidArgumentException
+         */
+        public function setCno($cno) {
             if ($this->fields['cno'] !== null) {
                 throw new BadMethodCallException(
                     "その番号はすでに設定されています。");
@@ -27,20 +34,31 @@ class CartEntity extends EntityAbstract{
 
             return $this;
         }
-        
-    public function setMno($mno) {
+
+        /**
+         * @param $mno
+         *
+         * @return $this
+         */
+        public function setMno($mno) {
 
             $this->fields['mno'] = $mno;
             return $this;
         }
-        
-    public function setIno($ino) {
+
+        public function setIno($ino) {
 
             $this->fields['ino'] = $ino;
             return $this;
         }
-        
-    public function setCsum($csum) {
+
+        /**
+         * @param $csum
+         *
+         * @return $this
+         * @throws InvalidArgumentException
+         */
+        public function setCsum($csum) {
 
             if(!is_int($csum)) {
                 throw new InvalidArgumentException("数字を入力してください");
@@ -49,4 +67,4 @@ class CartEntity extends EntityAbstract{
 
             return $this;
         }
-}
+    }
