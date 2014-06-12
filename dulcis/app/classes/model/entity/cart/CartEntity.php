@@ -6,6 +6,9 @@
      */
     namespace Dulcis\Dulcis\model\entity\cart;
 
+    require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
+
+    use Dulcis\Dulcis\model\entity\base\EntityAbstract;
     /**
      * Description of CartEntity
      *
