@@ -9,8 +9,9 @@ namespace Dulcis\Dulcis\model\dal;
 /**
  * Description of PdoAdapterFactory
  *
- * @author student
+ * @author dora56
  */
-class PdoAdapterFactory {
-    //put your code here
+abstract class PdoAdapterAbstractFactory {
+    
+    abstract public function create();
 }
