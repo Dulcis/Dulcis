@@ -1,17 +1,15 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-namespace Dulcis\Dulcis\model\dal\factory;
+    namespace Dulcis\Dulcis\model\dal\factory;
 
-/**
- * Description of PdoAdapterFactory
- *
- * @author dora56
- */
-abstract class PdoAdapterAbstractFactory {
-    
-    abstract public function create();
-}
+    /**
+     * Class PdoAdapterAbstractFactory
+     *
+     * AbstractFactoryパターンの抽象クラス
+     *
+     * @package Dulcis\Dulcis\model\dal\factory
+     * @author dora56
+     */
+    abstract class PdoAdapterAbstractFactory {
+
+        abstract public function create();
+    }
