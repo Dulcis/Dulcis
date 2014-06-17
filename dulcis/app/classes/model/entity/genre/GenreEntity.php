@@ -8,8 +8,9 @@
     namespace Dulcis\Dulcis\model\entity\genre;
 
     require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
-
+    use BadMethodCallException;
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    use InvalidArgumentException;
 
     /**
      * Class GenreEntity
@@ -20,26 +21,26 @@
      */
     class GenreEntity extends EntityAbstract{
 
-        protected $allowedFields = array('gno', 'gname');
+        protected $allowedFields = array('id', 'gname');
 
         /**
-         * @param $gno
+         * @param $id
          *
          * @return $this
          * @throws InvalidArgumentException
          * @throws BadMethodCallException
          */
-        public function setGno($gno){
+        public function setId($id){
 
-            if (isset($this->fields["gno"])) {
+            if (isset($this->fields["id"])) {
                 throw new BadMethodCallException(
                     "The ID for this user has been set already.");
             }
-            if (!is_int($gno) || $gno < 1) {
+            if (!is_int($id) || $id < 1) {
                 throw new InvalidArgumentException(
                     "The user ID is invalid.");
             }
-            $this->fields['gno'] = $gno;
+            $this->fields['gno'] = $id;
 
             return $this;
         }

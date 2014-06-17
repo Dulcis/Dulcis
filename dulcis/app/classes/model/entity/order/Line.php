@@ -108,6 +108,7 @@
          */
         public function setLpt($lpt){
 
+            $lpt = $lpt /
             $this->fields['lpt'] = $lpt;
 
             return $this;

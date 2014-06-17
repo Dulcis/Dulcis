@@ -4,6 +4,7 @@
     require_once(dirname(__FILE__) . '/../../../../../../vendor/autoload.php');
 
     use Dulcis\Dulcis\model\dal\factory\LocalPdoAdapterFactory;
+    use Dulcis\Dulcis\model\dal\factory\HomePdoAdapterFactory;
     use Exception;
 
     /**
@@ -16,16 +17,10 @@
     class CreatePdoAdapter {
 
         const LOCAL = "local";
+        const HOME = "home";
         const PUB = "pub";
 
-        private $_pdo;
-
-        /**
-         * @param $status
-         */
-        public function __construct($status) {
-            $this->setPdoAdapter($status);
-        }
+        private $adapter;
 
         /**
          * @param $status
@@ -37,15 +32,18 @@
 
             switch ($status) {
                 case self::LOCAL:
-                    $this->_pdo = new LocalPdoAdapterFactory();
+                    $this->adapter = new LocalPdoAdapterFactory();
+                    break;
+                case self::HOME:
+                    $this->adapter = new HomePdoAdapterFactory();
                     break;
                 case self::PUB:
-                    $this->_pdo = null;
+                    $this->adapter = null;
                     break;
                 default:
                     throw new Exception("設定がまちがってます。");
             }
 
-            return $this->_pdo->create();
+            return $this->adapter->create();
         }
     }

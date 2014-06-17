@@ -18,7 +18,7 @@ class CartMapper extends AbstractDataMapper{
 
     protected function loadEntity(array $row) {
         return new cart(array(
-            "cno"    => $row["cno"],
+            "id"    => $row["cno"],
             "mno"  => $row["mno"],
             "ino" => $row["ino"],
             "csum"  => $row["csum"]));

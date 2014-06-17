@@ -7,10 +7,12 @@
 namespace Dulcis\Dulcis\model\dal\mapper;
 
 require_once(dirname(__FILE__) . '/../../../../../../vendor/autoload.php');
-
-use Dulcis\Dulcis\model\dal\factory\CreatePdoAdapter;
+use Dulcis\Dulcis\model\dal\collection\EntityCollectionInterface;
+use Dulcis\Dulcis\model\dal\DatabaseAdapterInterface;
 use Dulcis\Dulcis\model\dal\mapper\DataMapperInterface;
 use Dulcis\Dulcis\model\entity\base\EntityInterface;
+use InvalidArgumentException;
+
 /**
  * Description of AbstractDataMapper
  *
@@ -23,7 +25,7 @@ abstract class AbstractDataMapper implements DataMapperInterface{
     protected $entityTable;
     protected $tableId;
     
-    public function __construct(CreatePdoAdapter $adapter, EntityCollectionInterface $collection, $entityTable = null, $tableId) {
+    public function __construct(DatabaseAdapterInterface $adapter, EntityCollectionInterface $collection, $entityTable = null, $tableId) {
         $this->adapter = $adapter;
         $this->collection = $collection;
         if ($entityTable !== null) {
@@ -76,7 +78,7 @@ abstract class AbstractDataMapper implements DataMapperInterface{
      
     public function delete(EntityInterface $entity) {
         return $this->adapter->delete($this->entityTable,
-            $this->tableId .  "= $entity->id");
+            $this->tableId . " = $entity->id");
     }
      
     protected function loadEntityCollection(array $rows) {

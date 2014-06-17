@@ -7,8 +7,10 @@
     namespace Dulcis\Dulcis\model\entity\cart;
 
     require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
-
+    use BadMethodCallException;
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    use InvalidArgumentException;
+
     /**
      * Description of CartEntity
      *
@@ -16,24 +18,24 @@
      */
     class CartEntity extends EntityAbstract{
 
-        protected $allowedFields = array('cno', 'mno', 'ino', 'csum');
+        protected $allowedFields = array('id', 'mno', 'ino', 'csum');
 
         /**
-         * @param $cno
+         * @param $id
          *
          * @return $this
          * @throws BadMethodCallException
          * @throws InvalidArgumentException
          */
-        public function setCno($cno) {
+        public function setId($id) {
             if ($this->fields['cno'] !== null) {
                 throw new BadMethodCallException(
                     "その番号はすでに設定されています。");
             }
-            if (!is_int($cno) || $cno < 1 || $cno > 9999999) {
+            if (!is_int($id) || $id < 1 || $id > 9999999) {
                 throw new InvalidArgumentException("カート番号が無効です。");
             }
-            $this->fields['cno'] = $cno;
+            $this->fields['id'] = $id;
 
             return $this;
         }

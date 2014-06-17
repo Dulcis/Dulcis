@@ -21,26 +21,26 @@
      */
     class Member extends EntityAbstract {
 
-        protected $allowedFields = array('mno', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
+        protected $allowedFields = array('いｄ', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
 
         /**
-         * @param $mno
+         * @param $id
          *
          * @return $this
          * @throws InvalidArgumentException
          * @throws BadMethodCallException
          */
-        public function setMno($mno) {
+        public function setId($id) {
 
-            if (isset($this->fields["mno"])) {
+            if (isset($this->fields["id"])) {
                 throw new BadMethodCallException(
                     "The ID for this user has been set already.");
             }
-            if (!is_int($mno) || $mno < 1) {
+            if (!is_int($id) || $id < 1) {
                 throw new InvalidArgumentException(
                     "The user ID is invalid.");
             }
-            $this->fields["mno"] = $mno;
+            $this->fields["id"] = $id;
 
             return $this;
         }

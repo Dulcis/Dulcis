@@ -124,27 +124,24 @@
             }
         }
 
-        /**
-         * トランザクション開始
-         */
+        /*
         public function beginTransaction() {
 
             $this->connection->beginTransaction();
         }
 
-        /**
-         * コミット
-         */
+
         public function commit() {
             $this->connection->commit();
         }
 
         /**
          * ロールバック
-         */
+
         public function rollBack() {
             $this->connection->rollBack();
         }
+        */
 
         /**
          * 直近の SQL ステートメントによって作用した行数を返す
