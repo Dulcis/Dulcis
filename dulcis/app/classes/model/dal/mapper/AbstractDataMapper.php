@@ -21,13 +21,15 @@ abstract class AbstractDataMapper implements DataMapperInterface{
     protected $adapter;
     protected $collection;
     protected $entityTable;
+    protected $tableId;
     
-    public function __construct(CreatePdoAdapter $adapter, EntityCollectionInterface $collection, $entityTable = null) {
+    public function __construct(CreatePdoAdapter $adapter, EntityCollectionInterface $collection, $entityTable = null, $tableId) {
         $this->adapter = $adapter;
         $this->collection = $collection;
         if ($entityTable !== null) {
             $this->setEntityTable($entityTable);
         }
+        $this->id = $tableId;
     }
          
     public function setEntityTable($entityTable) {
@@ -41,7 +43,7 @@ abstract class AbstractDataMapper implements DataMapperInterface{
      
     public function fetchById($id) {
         $this->adapter->select($this->entityTable,
-            array("id" => $id));
+            array($this->tableId => $id));
         if (!$row = $this->adapter->fetch()) {
             return null;
         }
@@ -61,7 +63,7 @@ abstract class AbstractDataMapper implements DataMapperInterface{
      
     public function update(EntityInterface $entity) {
         return $this->adapter->update($this->entityTable,
-            $entity->toArray(), "id = $entity->id");
+            $entity->toArray(), $this->tableId . " = $entity->id");
     }
      
     public function save(EntityInterface $entity) {
@@ -69,12 +71,12 @@ abstract class AbstractDataMapper implements DataMapperInterface{
             ? $this->adapter->insert($this->entityTable,
                 $entity->toArray())
             : $this->adapter->update($this->entityTable,
-                $entity->toArray(), "id = $entity->id");  
+                $entity->toArray(), $this->tableId .  " = $entity->id");
     }
      
     public function delete(EntityInterface $entity) {
         return $this->adapter->delete($this->entityTable,
-            "id = $entity->id");
+            $this->tableId .  "= $entity->id");
     }
      
     protected function loadEntityCollection(array $rows) {
