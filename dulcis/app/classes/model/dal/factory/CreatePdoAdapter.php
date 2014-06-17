@@ -3,6 +3,7 @@
 
     require_once(dirname(__FILE__) . '/../../../../../../vendor/autoload.php');
 
+    use Dulcis\Dulcis\model\dal\factory\LocalPdoAdapterFactory;
     use Exception;
 
     /**
@@ -43,7 +44,6 @@
                     break;
                 default:
                     throw new Exception("設定がまちがってます。");
-                    break;
             }
 
             return $this->_pdo->create();

@@ -7,12 +7,15 @@
      */
     namespace Dulcis\Dulcis\model\dal\storage;
 
+    use Countable;
+    use Iterator;
+    use ArrayAccess;
     /**
      * Interface ObjectStorageInterface
      *
      * @package Dulcis\Dulcis\model\dal\storage
      */
-    interface ObjectStorageInterface {
+    interface ObjectStorageInterface extends Countable, Iterator, ArrayAccess{
         public function attach($object, $data = null);
         public function detach($object);
         public function clear();
