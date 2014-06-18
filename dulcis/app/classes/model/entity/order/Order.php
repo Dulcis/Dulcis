@@ -15,20 +15,20 @@
      * @author student
      */
     class Order extends EntityAbstract{
-        protected $allowedFields = array('ono', 'mno', 'oname', 'omail', 'opost',
+        protected $allowedFields = array('id', 'mno', 'oname', 'omail', 'opost',
             'omail', 'oaddress','otel','ocard','odate',
             'osum', 'opt');
 
-        public function setOno($ono){
+        public function setId($id){
             if (isset($this->fields["ono"])) {
                 throw new BadMethodCallException(
-                    "The 商品番号 for this user has been set already.");
+                    "The 注文番号 for this user has been set already.");
             }
-            if (!is_int($ono) || $ono < 1) {
+            if (!is_int($id) || $id < 1) {
                 throw new InvalidArgumentException(
                     "The 商品番号 is invalid.");
             }
-            $this->fields['ono'] = $ono;
+            $this->fields['ono'] = $id;
 
             return $this;
         }
@@ -177,5 +177,17 @@
             $this->fields["opt"] = $opt;
 
             return $this;
+        }
+        /**
+         * 
+         * @param array $counts
+         * @param type $result
+         * @return type
+         */
+        public function addUp(array $counts,$result = null){
+            foreach ($counts as $key) {
+                $result = $result + $key;
+            }
+            return $result;
         }
     }
