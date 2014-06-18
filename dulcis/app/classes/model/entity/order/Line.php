@@ -7,8 +7,10 @@
     namespace Dulcis\Dulcis\model\entity\order;
 
     require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
-
+    use BadMethodCallException;
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    use InvalidArgumentException;
+
     /**
      * Description of Line
      *
@@ -16,7 +18,7 @@
      */
     class Line extends EntityAbstract{
 
-        protected $allowedFields = array('ono', 'lno', 'ino','lprice', 'lsum', 'lpt');
+        protected $allowedFields = array('ono', 'lno', 'ino','lprice', 'lsum', 'lpt', 'Flag'=> false);
 
         /**
          * @param $ono
@@ -102,21 +104,41 @@
         }
 
         /**
+         * データベースなどから取ってきたポイントカラムに値をセットする。
+         *
          * @param $lpt
          *
          * @return $this
          */
         public function setLpt($lpt){
 
-            $lpt = $lpt /
             $this->fields['lpt'] = $lpt;
 
             return $this;
         }
-        
-        public function pointCalculation($price) {
-            $price = $price / 10; 
+
+         public function setFlag($flag){
+             if(!is_bool($flag)){
+                 throw new InvalidArgumentException(
+                     "The 商品番号 is invalid.");
+             }
+             $this->fields['flag'] = $flag;
+             return $this;
+         }
+
+        /**
+         * 渡された値段からポイント計算をして、ポイントをセットする。
+         *
+         * @param $price
+         *
+         * @return $this
+         */
+        public function calculatePoint($price) {
+            $price = $price / 10;
             $point = floor($price);
-            return $point;
+
+            $this->fields['lpt'] = $point;
+
+            return $this;
         }
     }

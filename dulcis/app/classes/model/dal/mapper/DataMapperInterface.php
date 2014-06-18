@@ -12,6 +12,7 @@ use Dulcis\Dulcis\model\entity\base\EntityInterface;
 interface DataMapperInterface {
 
     public function fetchById($id);
+    public function fetchByColumns(array $column);
     public function fetchAll(array $conditions = array());
     public function insert(EntityInterface $entity);
     public function update(EntityInterface $entity);

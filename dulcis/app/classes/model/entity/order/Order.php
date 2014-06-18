@@ -7,8 +7,10 @@
     namespace Dulcis\Dulcis\model\entity\order;
 
     require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
-
+    use BadMethodCallException;
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    use InvalidArgumentException;
+
     /**
      * Description of Order
      *
@@ -20,7 +22,7 @@
             'osum', 'opt');
 
         public function setId($id){
-            if (isset($this->fields["ono"])) {
+            if (isset($this->fields["id"])) {
                 throw new BadMethodCallException(
                     "The 注文番号 for this user has been set already.");
             }
@@ -28,7 +30,7 @@
                 throw new InvalidArgumentException(
                     "The 商品番号 is invalid.");
             }
-            $this->fields['ono'] = $id;
+            $this->fields['is'] = $id;
 
             return $this;
         }
@@ -181,14 +183,50 @@
         /**
          * 合計の計算
          * 
-         * @param array $counts
-         * @param type $result
+         * @param array $counts　計算元
+         * @param type $result 合計の結果
          * @return type
          */
         public function addUp(array $counts,$result = null){
             foreach ($counts as $key) {
                 $result = $result + $key;
             }
-            yield $result;
+            return $result;
+        }
+
+        /**
+         * 合計金額から$money分引く
+         *
+         * @param $money
+         *
+         * @throws \InvalidArgumentException
+         * @return $this
+         */
+        public function subtractMoney($money){
+
+            if (!isset($this->fields["osum"]) || !is_int($money) ) {
+                throw new InvalidArgumentException("合計が設定されてないか、値が入力されていません。");
+            }
+            $this->fields["osum"] -= $money;
+
+            return $this;
+        }
+
+        /**
+         * 合計金額から$point分引く
+         *
+         * @param $point
+         *
+         * @return $this
+         * @throws \InvalidArgumentException
+         */
+        public function subtractPoint($point){
+
+            if (!isset($this->fields["opt"]) || !is_int($point) ) {
+                throw new InvalidArgumentException("ポイント合計が設定されてないか、値が入力されていません。");
+            }
+            $this->fields["opt"] -= $point;
+
+            return $this;
         }
     }

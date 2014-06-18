@@ -8,7 +8,7 @@ namespace Dulcis\Dulcis\model\dal\mapper;
 
 require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 
-use Dulcis\Dulcis\model\entity\cart;
+use Dulcis\Dulcis\model\entity\cart\CartEntity;
 /**
  * Description of CartMapper
  *
@@ -17,7 +17,7 @@ use Dulcis\Dulcis\model\entity\cart;
 class CartMapper extends AbstractDataMapper{
 
     protected function loadEntity(array $row) {
-        return new cart(array(
+        return new CartEntity(array(
             "id"    => $row["cno"],
             "mno"  => $row["mno"],
             "ino" => $row["ino"],

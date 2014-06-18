@@ -31,7 +31,7 @@ abstract class AbstractDataMapper implements DataMapperInterface{
         if ($entityTable !== null) {
             $this->setEntityTable($entityTable);
         }
-        $this->id = $tableId;
+        $this->tableId = $tableId;
     }
          
     public function setEntityTable($entityTable) {
@@ -46,6 +46,15 @@ abstract class AbstractDataMapper implements DataMapperInterface{
     public function fetchById($id) {
         $this->adapter->select($this->entityTable,
             array($this->tableId => $id));
+        if (!$row = $this->adapter->fetch()) {
+            return null;
+        }
+        return $this->loadEntity($row);
+    }
+
+    public function fetchByColumns(array $column){
+        $this->adapter->select($this->entityTable,
+            $column);
         if (!$row = $this->adapter->fetch()) {
             return null;
         }

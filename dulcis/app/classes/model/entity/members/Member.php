@@ -21,7 +21,7 @@
      */
     class Member extends EntityAbstract {
 
-        protected $allowedFields = array('いｄ', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
+        protected $allowedFields = array('iｄ', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
 
         /**
          * @param $id
