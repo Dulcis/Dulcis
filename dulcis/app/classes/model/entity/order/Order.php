@@ -179,6 +179,7 @@
             return $this;
         }
         /**
+         * 合計の計算
          * 
          * @param array $counts
          * @param type $result
@@ -188,6 +189,6 @@
             foreach ($counts as $key) {
                 $result = $result + $key;
             }
-            return $result;
+            yield $result;
         }
     }

@@ -113,4 +113,10 @@
 
             return $this;
         }
+        
+        public function pointCalculation($price) {
+            $price = $price / 10; 
+            $point = floor($price);
+            return $point;
+        }
     }
