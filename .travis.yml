@@ -10,7 +10,3 @@ before_script:
 script:
   - cd test
   - phpunit
-
-notifications:
-  email:
-    - richard.tribes@gmail.com
