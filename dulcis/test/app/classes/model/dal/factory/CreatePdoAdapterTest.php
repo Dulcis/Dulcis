@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Dora
@@ -9,6 +8,7 @@
 namespace Dulcis\Test\model\dal\factory;
 
 use Dulcis\Dulcis\model\dal\factory\CreatePdoAdapter;
+use PHPUnit_Framework_TestCase;
 
 class CreatePdoAdapterTest extends PHPUnit_Framework_TestCase {
     
@@ -19,6 +19,6 @@ class CreatePdoAdapterTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testSetPdoAdapter(){
-        $this->assertInstanceOf('PdoAdapter',$this->object->setPdoAdapter('local'));
+        $this->assertInstanceOf('Dulcis\Dulcis\model\dal\PdoAdapter',$this->object->setPdoAdapter('local'));
     }
 }
