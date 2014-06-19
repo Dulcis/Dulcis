@@ -8,7 +8,7 @@ require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 
 use Dulcis\Dulcis\model\modeldata\Member;
 
-class MemberTest extends \PHPUnit_Framework_TestCase {
+class MemberTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @var Member
