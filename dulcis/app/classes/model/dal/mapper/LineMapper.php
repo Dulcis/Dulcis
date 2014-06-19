@@ -11,6 +11,13 @@
     use Dulcis\Dulcis\model\entity\base\EntityInterface;
     use Dulcis\Dulcis\model\entity\order\Line;
 
+    /**
+     * Class LineMapper
+     * 
+     * 推奨　結果の1行を特定する場合、fetchByIdではなくfetchByColumnsを使用すること
+     *
+     * @package Dulcis\Dulcis\model\dal\mapper
+     */
     class LineMapper extends AbstractDataMapper {
 
         public function update(EntityInterface $entity) {

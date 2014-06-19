@@ -18,7 +18,7 @@
      */
     class CartEntity extends EntityAbstract{
 
-        protected $allowedFields = array('id', 'mno', 'ino', 'csum');
+        protected $allowedFields = array('id', 'mno', 'ino', 'csum', 'flag' => false);
 
         /**
          * @param $id
@@ -70,6 +70,23 @@
             }
             $this->fields['csum'] = $csum;
 
+            return $this;
+        }
+
+        /**
+         * UPDATEのフラグ管理
+         *
+         * @param $flag
+         *
+         * @return $this
+         * @throws \InvalidArgumentException
+         */
+        public function setFlag($flag){
+            if(!is_bool($flag)){
+                throw new InvalidArgumentException(
+                    "bool型で入れてください");
+            }
+            $this->fields['flag'] = $flag;
             return $this;
         }
     }

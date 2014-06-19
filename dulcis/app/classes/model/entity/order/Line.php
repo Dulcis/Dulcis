@@ -117,10 +117,18 @@
             return $this;
         }
 
-         public function setFlag($flag){
+        /**
+         * UPDATEのフラグ管理
+         *
+         * @param $flag
+         *
+         * @return $this
+         * @throws \InvalidArgumentException
+         */
+        public function setFlag($flag){
              if(!is_bool($flag)){
                  throw new InvalidArgumentException(
-                     "The 商品番号 is invalid.");
+                     "bool型で入れてください");
              }
              $this->fields['flag'] = $flag;
              return $this;
