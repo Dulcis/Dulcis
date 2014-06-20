@@ -8,5 +8,7 @@ before_script:
   - php composer.phar install
 
 script:
-  - cd test
   - phpunit
+branches:
+  only:
+    - cart
