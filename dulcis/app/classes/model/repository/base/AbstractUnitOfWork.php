@@ -6,9 +6,9 @@
  * Time: 0:18
  */
 
-namespace Dulcis\Dulcis\model\dal\repository\base;
+namespace Dulcis\Dulcis\model\repository\base;
 
-require_once(dirname(__FILE__).'/../../../../../../../vendor/autoload.php');
+require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 
 use Dulcis\Dulcis\model\dal\mapper\DataMapperInterface;
 use Dulcis\Dulcis\model\dal\storage\ObjectStorageInterface;

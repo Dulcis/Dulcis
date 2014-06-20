@@ -29,7 +29,7 @@
          * @throws BadMethodCallException
          */
         public function getId($id){
-            if (isset($this->fields["ino"])) {
+            if (isset($this->fields["id"])) {
                 throw new BadMethodCallException(
                     "The 商品番号 for this user has been set already.");
             }

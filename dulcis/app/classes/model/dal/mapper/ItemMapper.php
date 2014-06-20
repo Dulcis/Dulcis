@@ -17,7 +17,7 @@ use Dulcis\Dulcis\model\entity\items\Item;
 class ItemMapper extends AbstractDataMapper{
     protected function loadEntity(array $row) {
         return new Item(array(
-            "ino"    => $row["ino"],
+            "id"    => $row["ino"],
             "iname"  => $row["iname"],
             "gno" => $row["gno"],
             "iprice"  => $row["iprice"],
