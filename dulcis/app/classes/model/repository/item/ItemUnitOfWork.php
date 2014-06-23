@@ -16,8 +16,18 @@ require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
  *
  * @author student
  */
-class ItemUnitOfWork extends AbstractUnitOfWork implements UnitOfWorkInterface{
-    public function fetchByIname($iname);
-    public function fetchByGno($gno);
-    public function fetchByIno($ino);
+class ItemUnitOfWork extends AbstractUnitOfWork implements ItemUnitOfWorkInterface{
+
+
+    public function fetchByGno($gno){
+        return $this->dataMapper->fetchAll(array("gno" => $gno));
+    }
+
+    public function fetchByIname($iname){
+        return $this->dataMapper->fetchAll(array("iname" => $iname));
+    }
+
+    public function fetchByIno($ino) {
+        return $this->dataMapper->fetchById($ino);
+    }
 }

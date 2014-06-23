@@ -23,14 +23,14 @@
         private $adapter;
 
         /**
-         * @param $status
+         * @throws \Exception
+         * @internal param $status
          *
          * @return \Dulcis\Dulcis\model\dal\PdoAdapter
-         * @throws \Exception
          */
-        public function setPdoAdapter($status) {
+        public function setPdoAdapter() {
 
-            switch ($status) {
+            switch ('home') {
                 case self::LOCAL:
                     $this->adapter = new LocalPdoAdapterFactory();
                     break;

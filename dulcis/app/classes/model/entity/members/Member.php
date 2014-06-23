@@ -6,11 +6,12 @@
      * Time: 1:20
      */
 
-    namespace Dulcis\Dulcis\model\entity\membars;
+    namespace Dulcis\Dulcis\model\entity\members;
 
     require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
-
+    use BadMethodCallException;
     use Dulcis\Dulcis\model\entity\base\EntityAbstract;
+    use InvalidArgumentException;
 
     /**
      * Class Member
@@ -21,7 +22,7 @@
      */
     class Member extends EntityAbstract {
 
-        protected $allowedFields = array('iｄ', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
+        protected  $allowedFields = array('id', 'mpass', 'mname', 'mmail', 'mpost', 'maddress', 'mtel', 'mpt', 'mcard');
 
         /**
          * @param $id
@@ -36,7 +37,7 @@
                 throw new BadMethodCallException(
                     "The ID for this user has been set already.");
             }
-            if (!is_int($id) || $id < 1) {
+            if (!is_int($id) || $id < 0) {
                 throw new InvalidArgumentException(
                     "The user ID is invalid.");
             }
@@ -53,9 +54,10 @@
          */
         public function setMpass($mpass) {
 
-            if (!preg_match("/^[a-zA-Z0-9]+$/", $mpass) || $mpass < 1 || $mpass > 7) {
+            /*
+            if (!preg_match("/^[a-zA-Z0-9]+$/", $mpass) || $mpass < 1 || $mpass > 16) {
                 throw new InvalidArgumentException("無効です。");
-            }
+            }*/
             $this->fields["mpass"]= $mpass;
 
             return $this;
@@ -69,7 +71,7 @@
          */
         public function setMname($mname) {
 
-            if (strlen($mname) < 1 || strlen($mname) > 20) {
+            if (strlen($mname) < 0 || strlen($mname) > 21) {
                 throw new InvalidArgumentException("名前の文字数が無効です。");
             }
             $this->fields["mname"] = htmlspecialchars(trim($mname), ENT_QUOTES);

@@ -32,7 +32,7 @@
                 throw new BadMethodCallException(
                     "その番号はすでに設定されています。");
             }
-            if (!is_int($id) || $id < 1 || $id > 9999999) {
+            if (!is_int($id) || $id < 0 || $id > 9999999) {
                 throw new InvalidArgumentException("カート番号が無効です。");
             }
             $this->fields['id'] = $id;

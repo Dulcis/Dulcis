@@ -19,6 +19,6 @@ class CreatePdoAdapterTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testSetPdoAdapter(){
-        $this->assertInstanceOf('Dulcis\Dulcis\model\dal\PdoAdapter',$this->object->setPdoAdapter('local'));
+        $this->assertInstanceOf('Dulcis\Dulcis\model\dal\PdoAdapter',$this->object->setPdoAdapter());
     }
 }

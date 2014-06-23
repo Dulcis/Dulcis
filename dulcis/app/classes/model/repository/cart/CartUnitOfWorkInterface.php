@@ -7,7 +7,7 @@
  */
 namespace Dulcis\Dulcis\model\repository\cart;
 
-require_once(dirname(__FILE__).'/../../../../../../../vendor/autoload.php');
+require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 
 use Dulcis\Dulcis\model\repository\base\UnitOfWorkInterface;
 
@@ -19,5 +19,5 @@ interface CartUnitOfWorkInterface extends UnitOfWorkInterface{
 public function fetchByCnoAndMnoAndIno($cno,$mno,$Ino);
 public function fetchByCno($cno);
 public function fetchByMno($mno);
-public function fecchByIno($ino);
+public function fetchByIno($ino);
 }

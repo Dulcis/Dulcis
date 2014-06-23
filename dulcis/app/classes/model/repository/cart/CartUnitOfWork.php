@@ -25,7 +25,7 @@ class CartUnitOfWork extends AbstractUnitOfWork implements CartUnitOfWorkInterfa
                                                        "ino" => $ino));
     }
 
-    public function fecchByIno($ino) {
+    public function fetchByIno($ino) {
         return $this->dataMapper->fecthAll(array("ino" => $ino));
     }
 

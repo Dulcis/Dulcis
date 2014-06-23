@@ -15,7 +15,7 @@ use Dulcis\Dulcis\model\repository\base\UnitOfWorkInterface;
  * @author dora56
  */
 interface ItemUnitOfWorkInterface extends UnitOfWorkInterface{
+    public function fetchByIno($ino);
     public function fetchByIname($iname);
     public function fetchByGno($gno);
-    public function fetchByIno($ino);
 }
