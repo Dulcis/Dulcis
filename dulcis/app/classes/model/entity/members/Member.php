@@ -167,12 +167,13 @@
          */
         public function setMcard($mcard) {
 
+            /*
             if (!preg_match("/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}
                             |6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}
                             |3[47][0-9]{13}|(?:2131|1800|35[0-9]{3})[0-9]{11})$/", $mcard)
             ) {
                 throw new InvalidArgumentException("無効なクレジットカードです。");
-            }
+            }*/
             $this->fields["mcard"] = $mcard;
 
             return $this;

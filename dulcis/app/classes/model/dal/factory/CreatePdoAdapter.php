@@ -30,7 +30,7 @@
          */
         public function setPdoAdapter() {
 
-            switch ('home') {
+            switch ('local') {
                 case self::LOCAL:
                     $this->adapter = new LocalPdoAdapterFactory();
                     break;

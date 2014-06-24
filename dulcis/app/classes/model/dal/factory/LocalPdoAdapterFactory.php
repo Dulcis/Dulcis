@@ -27,7 +27,7 @@
          */
         public function create() {
 
-            $this->pdo_adapter = new PdoAdapter("mysql:dbname=dulcis;host=172.20.17.214", "user1", "");
+            $this->pdo_adapter = new PdoAdapter("mysql:dbname=prototype;host=172.20.17.214", "user1", "");
 
             return $this->pdo_adapter;
         }
