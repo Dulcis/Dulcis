@@ -9,6 +9,9 @@
 namespace Dulcis\Dulcis\model\service\encode;
 
 require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
+
+use Dulcis\Dulcis\model\entity\base\EntityInterface;
+use Dulcis\Dulcis\model\dal\collection\EntityCollectionInterface;
 /**
  * Description of JsonEncoder
  *
@@ -17,28 +20,22 @@ require_once(dirname(__FILE__).'/../../../../../../vendor/autoload.php');
 class JsonEncoder implements EncoderInterface{
     private $data = array();
 
-    public function setData(array $data) {     
-        foreach ($data as $key => $value) {
-            if (is_object($value)) {
-                $array = array();
-                $reflect = new ReflectionObject($value);
- 
-                foreach ($reflect->getProperties() as $prop) {
-                    $prop->setAccessible(true);
-                    $array[$prop->getName()] =
-                        $prop->getValue($value);
-                }
-                $data[$key] = $array;
-            }
+    public function setCollectionData(EntityCollectionInterface $collection) {    
+        foreach (self::GeneratorByEntityCollection() as $val){
+            
         }
          
-        $this->data = $data;
-        return $this;
-        
-        
-        return $this;
+
     }
-    public function encode() {
+    
+    private function GeneratorByEntityCollection(EntityCollectionInterface $collection){
+        
+        foreach ($collection as $key){    
+        yield $key->toArray();
+        }
+    }
+
+        public function encode() {
         return array_map("json_encode", $this->data);
     }
 
