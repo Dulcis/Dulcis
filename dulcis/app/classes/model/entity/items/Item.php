@@ -87,7 +87,7 @@
                 throw new InvalidArgumentException(
                     "The user ID is invalid.");
             }
-            $this->fields['gno'] = $iprice;
+            $this->fields['price'] = $iprice;
 
             return $this;
         }

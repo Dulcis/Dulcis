@@ -16,7 +16,7 @@ class HomePdoAdapterFactory extends PdoAdapterAbstractFactory{
 
     function create() {
 
-        $this->pdoAdapter = new PdoAdapter("mysql:dbname=dulcis;host=localhost", "root", "AjmmfaWwPVSVARTj");
+        $this->pdoAdapter = new PdoAdapter("mysql:dbname=dulcis;host=localhost", "user1", "");
 
         return $this->pdoAdapter;
 
