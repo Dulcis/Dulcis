@@ -76,7 +76,7 @@
                 },
                 "phone": {
                     // credit: jquery.h5validate.js / orefalo
-                    "regex": /^([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9 \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)$/,
+                    "regex": 	/^[0-9]{2,4}[0-9]{2,4}[0-9]{3,4}$/,
                     "alertText": "* 電話番号が正しくありません"
                 },
                 "email": {
@@ -118,6 +118,12 @@
                     "alertText": "* 半角英数で入力してください"
                 },
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
+                "ajaxMailCallPHP": {
+                    "url": "./../classes/ajax_mail.php",
+                    "alertText": "* このメールアドレスは登録されています。",
+                    "alertTextOk": "OK",
+                    "alertTextLoad": "* メールアドレスの重複チェックをしています。少々お待ちください。"
+                },
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call
@@ -137,6 +143,10 @@
                 },
                 "validate2fields": {
                     "alertText": "* 『HELLO』と入力してください"
+                },
+                "zip": {
+                    "regex": /^\d{3}-?\d{4}$/,
+                    "alertText": "-(ハイフン)ありの郵便番号で入力してください"
                 }
             };
             

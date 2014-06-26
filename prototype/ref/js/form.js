@@ -1,5 +1,3 @@
 $(document).ready(function(){
-$(function(){
-   jQuery("#form").validationEngine();
-})
+   jQuery("#user_registration").validationEngine();
 });

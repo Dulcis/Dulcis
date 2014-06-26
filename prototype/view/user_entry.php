@@ -3,6 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./../ref/js/jquery.validationEngine-ja.js"></script>
+    <script type="text/javascript" src="./../ref/js/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="./../ref/js/form.js"></script>
 <title>会員情報登録画面</title>
 </head>
 <body>
@@ -52,7 +56,7 @@
 					echo '<p>以下の内容で登録します。よろしいですか？</p>';
 					echo '<form action="user_entry.php" method="POST">';
 						echo'<p>氏名：' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
-						echo'<p>メールアドレス：' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
+						echo'<p>メールアドレス：' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '"  class="validate[required,custom[email]]"/></p>';
 						echo'<p>パスワード：' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
 						echo'<p>郵便番号：' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /></p>';
 						echo'<p>住所：' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
@@ -121,15 +125,15 @@
 				}
 			} else {
 				//初回アクセス時
-				echo '<form action="user_entry.php" method="POST">';
-					echo'<p>氏名：<input type="text" name="user_name" maxlength="" required /></p>';
-					echo'<p>メールアドレス：<input type="text" name="user_mailadd" maxlength="" required /></p>';
-					echo'<p>パスワード：<input type="password" name="user_pw" maxlength="" required /></p>';
-					echo'<p>パスワード（確認）：<input type="password" name="user_pwch" maxlength="" required /></p>';
-					echo'<p>郵便番号：<input type="text" name="user_post" maxlength="" required /></p>';
-					echo'<p>住所：<input type="text" name="user_add" maxlength="" required /></p>';
-					echo'<p>電話番号：<input type="text" name="user_tel" maxlength="" required /></p>';
-					echo'<p>クレジットカード番号：<input type="text" name="user_card" maxlength="" required /></p>';
+				echo '<form id="user_registration" action="user_entry.php" method="POST">';
+					echo'<p>氏名：<input type="text" name="user_name" class="validate[required]"/></p>';
+					echo'<p>メールアドレス：<input type="text" name="user_mailadd"  class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
+					echo'<p>パスワード：<input type="password" name="user_pw" id="user_pw" class="validate[required]" /></p>';
+					echo'<p>パスワード（確認）：<input type="password" name="user_pwch" class="validate[required,equals[user_pw]]"/></p>';
+					echo'<p>郵便番号：<input type="text" name="user_post" maxlength="8" class="validate[required,custom[zip]]"/></p>';
+					echo'<p>住所：<input type="text" name="user_add"  class="validate[required]" /></p>';
+					echo'<p>電話番号：<input type="text" name="user_tel"  class="validate[required,custom[phone]]" /></p>';
+					echo'<p>クレジットカード番号：<input type="text" name="user_card"  class="validate[required,creditCard]" /></p>';
 					echo'<input type="submit" value="確認" name="fase1" />';
 					echo'<input type="reset" value="リセット" />';
 				echo'</form>';
