@@ -121,7 +121,6 @@
                 "ajaxMailCallPHP": {
                     "url": "./../classes/ajax_mail.php",
                     "alertText": "* このメールアドレスは登録されています。",
-                    "alertTextOk": "OK",
                     "alertTextLoad": "* メールアドレスの重複チェックをしています。少々お待ちください。"
                 },
                 "ajaxUserCall": {
@@ -147,6 +146,10 @@
                 "zip": {
                     "regex": /^\d{3}-?\d{4}$/,
                     "alertText": "-(ハイフン)ありの郵便番号で入力してください"
+                },
+                "password": {
+                    "regex": /^(?=.*[0-9a-zA-Z]).{8,15}$/,
+                    "alertText": "パスワードが正しくありません"
                 }
             };
             

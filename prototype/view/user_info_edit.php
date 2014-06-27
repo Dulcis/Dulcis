@@ -4,6 +4,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>会員情報変更画面</title>
+<link rel="stylesheet" href="../ref/css/validationEngine.jquery.css" type="text/css"/>
+<script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="./../ref/js/jquery.validationEngine-ja.js"></script>
+    <script type="text/javascript" src="./../ref/js/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="./../ref/js/form.js"></script>
 </head>
 <body>
 
@@ -183,16 +188,16 @@
 				$user_add = $_SESSION['user_add'];
 				$user_tel = $_SESSION['user_tel'];
 				$user_card = $_SESSION['user_card'];
-				echo '<form action="user_info_edit.php" method="POST">';
-					echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
-					echo '<p>氏名：<input type="text" name="user_name" value="' . $user_name . '" maxlength="" required /></p>';
-					echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="" required /></p>';
-					echo '<p>パスワード：<input type="password" name="user_pw" maxlength="" required /></p>';
-					echo '<p>パスワード（確認）：<input type="password" name="user_pwch" maxlength="" required /></p>';
-					echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="" required /></p>';
-					echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" maxlength="" required /></p>';
-					echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" maxlength="" required /></p>';
-					echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="" required /></p>';
+				echo '<form id="user_registration" action="user_info_edit.php" method="POST">';
+					echo '<input type="hidden" name="user_id" value="' . $user_id . '" >';
+					echo '<p>氏名：<input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required] /></p>';
+					echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
+					echo '<p>パスワード：<input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)</p>';
+					echo '<p>パスワード（確認）：<input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /></p>';
+					echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="8" class="validate[required,custom[zip]]" /></p>';
+					echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /></p>';
+					echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /></p>';
+					echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /></p>';
 					echo '<input type="submit" value="更新" name="fase1" />';
 					echo '<input type="submit" value="削除" name="fase4" />';
 				echo '</form>';
