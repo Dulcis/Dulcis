@@ -12,7 +12,7 @@
     <script type="text/javascript" src="./../ref/js/form.js"></script>
 </head>
 <body>
-
+<div id="user_form">
 <?php
     //パスの設定
     require_once('include_path.php');
@@ -60,13 +60,13 @@
                 echo '<p>以下の内容に更新します。よろしいですか？</p>';
                 echo '<form action="user_info_edit.php" method="POST">';
                 echo '<input type="hidden" name="user_id" value="' . $user_id . '" />';
-                echo'<p>氏名：' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
-                echo'<p>メールアドレス：' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
-                echo'<p>パスワード：' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
-                echo'<p>郵便番号：' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /></p>';
-                echo'<p>住所：' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
-                echo'<p>電話番号：' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
-                echo'<p>クレジットカード番号：' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
+                echo'<p><label for="user_name" accesskey="n">名前：</label><br>' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
+                echo'<p><lavel for="user_mailadd" accesskey="m">メールアドレス：</label><br>' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
+                echo'<p><lavel for="user_pw" accesskey="p">パスワード：</label><br>' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
+                echo'<p><lavel for="user_post" accesskey="z">郵便番号：</label><br>' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /></p>';
+                echo'<p><lavel for="user_add" accesskey="a">住所：</label><br>' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
+                echo'<p><lavel for="user_tel" accesskey="t">電話番号：</label><br>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
+                echo'<p><lavel for="user_card" accesskey="c">クレジットカード番号：</label><br>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
                 echo'<input type="submit" value="変更" name="fase2" />';
                 echo'<input type="submit" value="確定" name="fase3" />';
                 echo'</form>';
@@ -82,14 +82,14 @@
                 }
                 echo '<form action="user_info_edit.php" method="POST">';
                 echo '<input type="hidden" name="user_id" value="' . $user_id . '" />';
-                echo'<p>氏名：<input type="text" name="user_name" value="' . $user_name . '" maxlength="" required /></p>';
-                echo'<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="" required /></p>';
-                echo'<p>パスワード：<input type="password" name="user_pw" maxlength="" required /></p>';
-                echo'<p>パスワード（確認）：<input type="password" name="user_pwch" maxlength="" required /></p>';
-                echo'<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="" required /></p>';
-                echo'<p>住所：<input type="text" name="user_add" value="' . $user_add . '" maxlength="" required /></p>';
-                echo'<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" maxlength="" required /></p>';
-                echo'<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="" required /></p>';
+                echo'<p><label for="user_name" accesskey="n">名前：</label><br><input type="text" name="user_name" value="' . $user_name . '" maxlength="" required /></p>';
+                echo'<p><lavel for="user_mailadd" accesskey="m">メールアドレス：</label><br><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="" required /></p>';
+                echo'<p><lavel for="user_pw" accesskey="p">パスワード：</label><br><input type="password" name="user_pw" maxlength="" required /></p>';
+                echo'<p>lavel for="user_pwch" accesskey="o">パスワード（確認）：</label><br><input type="password" name="user_pwch" maxlength="" required /></p>';
+                echo'<p><lavel for="user_post" accesskey="z">郵便番号：</label><br><input type="text" name="user_post" value="' . $user_post . '" maxlength="" required /></p>';
+                echo'<p><lavel for="user_add" accesskey="a">住所：</label><br><input type="text" name="user_add" value="' . $user_add . '" maxlength="" required /></p>';
+                echo'<p><lavel for="user_tel" accesskey="t">電話番号：</label><br><input type="text" name="user_tel" value="' . $user_tel . '" maxlength="" required /></p>';
+                echo'<p><lavel for="user_card" accesskey="c">クレジットカード番号：</label><br><input type="text" name="user_card" value="' . $user_card . '" maxlength="" required /></p>';
                 echo'<input type="submit" value="確認" name="fase1" />';
                 echo'</form>';
                 //トップ画面へのリンク
@@ -144,13 +144,13 @@
                 echo '<p>以下の会員情報を削除し、退会します。よろしいですか？</p>';
                 echo '<form action="user_info_edit.php" method="POST">';
                 echo '<input type="hidden" name="user_id" value="' . $user_id . '" />';
-                echo'<p>氏名：' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
-                echo'<p>メールアドレス：' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
-                echo'<p>パスワード：' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
-                echo'<p>郵便番号：' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
-                echo'<p>住所：' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
-                echo'<p>電話番号：' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
-                echo'<p>クレジットカード番号：' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
+                echo'<p><label for="user_name" accesskey="n">名前：</label><br>' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
+                echo'<p><lavel for="user_mailadd" accesskey="m">メールアドレス：</label><br>' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
+                echo'<p><lavel for="user_pw" accesskey="p">パスワード：</label><br>' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
+                echo'<p><lavel for="user_post" accesskey="z">郵便番号：</label><br>' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
+                echo'<p><lavel for="user_add" accesskey="a">住所：</label><br>' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
+                echo'<p><lavel for="user_tel" accesskey="t">電話番号：</label><br>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
+                echo'<p><lavel for="user_card" accesskey="c">クレジットカード番号：</label><br>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
                 echo'<input type="submit" value="キャンセル" name="cancel" />';
                 echo'<input type="submit" value="確定" name="fase5" />';
                 echo'</form>';
@@ -191,14 +191,14 @@
             $user_card = $_SESSION['user_card'];
             echo '<form id="user_registration" action="user_info_edit.php" method="POST">';
             echo '<input type="hidden" name="user_id" value="' . $user_id . '" >';
-            echo '<p>氏名：<input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required] /></p>';
-            echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
-            echo '<p>パスワード：<input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)</p>';
-            echo '<p>パスワード（確認）：<input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /></p>';
-            echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /></p>';
-            echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /></p>';
-            echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /></p>';
-            echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /></p>';
+            echo '<p><label for="user_name" accesskey="n">名前：</label><br><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required] /></p>';
+            echo '<p><lavel for="user_mailadd" accesskey="m">メールアドレス：</label><br><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
+            echo '<p><lavel for="user_pw" accesskey="p">パスワード：</label><br><input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)</p>';
+            echo '<p><lavel for="user_pwch" accesskey="o">パスワード（確認）：</label><br><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /></p>';
+            echo '<p><lavel for="user_post" accesskey="z">郵便番号：</label><br><input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /></p>';
+            echo '<p><lavel for="user_add" accesskey="a">住所：</label><br><input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /></p>';
+            echo '<p><lavel for="user_tel" accesskey="t">電話番号：</label><br><input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /></p>';
+            echo '<p><lavel for="user_card" accesskey="c">クレジットカード番号：</label><br><input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /></p>';
             echo '<input type="submit" value="更新" name="fase1" />';
             echo '<input type="submit" value="削除" name="fase4" />';
             echo '</form>';
@@ -214,5 +214,6 @@
     require_once('ranking_menu.php');
     require_once('footer_menu.php');
 ?>
+</div>
 </body>
 </html>
