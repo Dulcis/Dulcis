@@ -123,6 +123,12 @@
                     "alertText": "* このメールアドレスは登録されています。",
                     "alertTextLoad": "* メールアドレスの重複チェックをしています。少々お待ちください。"
                 },
+                "ajaxMailUpdateCallPHP": {
+                    "url": "./../classes/ajax_mail_update.php",
+                    "extraDataDynamic": ['#user_mail'],
+                    "alertText": "* このメールアドレスは登録されています。",
+                    "alertTextLoad": "* メールアドレスの重複チェックをしています。少々お待ちください。"
+                },
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
                     // you may want to pass extra data on the ajax call

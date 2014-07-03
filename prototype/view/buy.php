@@ -217,12 +217,12 @@
 						echo '<form action="buy.php" method="POST">';
 							//会員情報
 							echo '<p>商品の送り先</p>';
-							echo '<p>名前：<input type="text" name="user_name" value="' . $user_name . '" required /></p>';
-							echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" required /></p>';
-							echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" required /></p>';
-							echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" required /></p>';
-							echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" required /></p>';
-							echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" required /></p>';
+							echo '<p>名前：<input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /></p>';
+							echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '"  maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /></p>';
+							echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
+							echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /></p>';
+							echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '"  class="validate[required,custom[phone]]" /></p>';
+							echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '"maxlength="16" class="validate[required,creditCard]" /></p>';
 							echo '<p>有効期限：<input type="text" name="user_term" value="' . $user_term . '" required /></p>';
 							echo '<input type="hidden" name="user_pt" value="' . $user_pt . '">';
 							echo '<p>累計ポイント：' . $user_pt . '</p>';
@@ -361,12 +361,12 @@
 							echo '<form action="buy.php" method="POST">';
 								//お客様情報
 								echo '<p>商品の送り先</p>';
-								echo '<p>名前：<input type="text" name="user_name" value="' . $user_name . '" required /></p>';
-								echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" required /></p>';
-								echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" required /></p>';
-								echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" required /></p>';
-								echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" required /></p>';
-								echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" required /></p>';
+								echo '<p>名前：<input type="text" name="user_name" value="' . $user_name . '" "validate[required]" /></p>';
+								echo '<p>メールアドレス：<input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
+								echo '<p>郵便番号：<input type="text" name="user_post" value="' . $user_post . '" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
+								echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" "validate[required]" /></p>';
+								echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /></p>';
+								echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /></p>';
 								echo '<p>有効期限：<input type="text" name="user_term" value="' . $user_term . '" required /></p>';
 								//金額やボタンなど
 								echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
@@ -379,12 +379,12 @@
 							echo '<form action="buy.php" method="POST">';
 								//お客様情報
 								echo '<p>商品の送り先</p>';
-								echo '<p>名前：<input type="text" name="user_name" required /></p>';
-								echo '<p>メールアドレス：<input type="text" name="user_mailadd" required /></p>';
-								echo '<p>郵便番号：<input type="text" name="user_post" required /></p>';
-								echo '<p>住所：<input type="text" name="user_add" required /></p>';
-								echo '<p>電話番号：<input type="text" name="user_tel" required /></p>';
-								echo '<p>クレジットカード番号：<input type="text" name="user_card" required /></p>';
+								echo '<p>名前：<input type="text" name="user_name" maxlength="20" class="validate[required]" /></p>';
+								echo '<p>メールアドレス：<input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
+								echo '<p>郵便番号：<input type="text" name="user_post" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
+								echo '<p>住所：<input type="text" name="user_add"  class="validate[required]" /></p>';
+								echo '<p>電話番号：<input type="text" name="user_tel" class="validate[required,custom[phone]]" /></p>';
+								echo '<p>クレジットカード番号：<input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /></p>';
 								echo '<p>有効期限：<input type="text" name="user_term" required /></p>';
 								//金額やボタンなど
 								echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
