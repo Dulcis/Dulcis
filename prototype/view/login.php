@@ -43,6 +43,7 @@
 						$_SESSION['user_tel'] = $row['mtel'];
 						$_SESSION['user_pt'] = $row['mpt'];
 						$_SESSION['user_card'] = $row['mcard'];
+						$_SESSION['user_term'] = $row['mterm'];
 						
 					}
 					echo '<p>ログインが完了しました。</p>';

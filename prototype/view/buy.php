@@ -26,6 +26,7 @@
 				$user_add = $_POST['user_add'];
 				$user_tel = $_POST['user_tel'];
 				$user_card = $_POST['user_card'];
+				$user_term = $_POST['user_term'];
 				$buy_price = $_POST['buy_price'];
 				$buy_pt = $_POST['buy_pt'];
 				$pt = $_POST['pt'];
@@ -136,6 +137,7 @@
 						$user_tel = $_POST['user_tel'];
 						$user_pt = $_POST['user_pt'];
 						$user_card = $_POST['user_card'];
+						$user_term = $_POST['user_term'];
 						//合計金額
 						$buy_price = $_POST['buy_price'];
 						//ポイント使用の有無
@@ -159,6 +161,8 @@
 							echo '<p>電話番号：' . $user_tel . '</p>';
 							echo '<input type="hidden" name="user_card" value="' . $user_card . '" />';
 							echo '<p>クレジットカード番号：' . $user_card . '</p>';
+							echo '<input type="hidden" name="user_term" value="' . $user_term . '" />';
+							echo '<p>有効期限：' . $user_term . '</p>';
 							echo '<p>ポイントを使用';
 							if($pt == 0) {
 								//ポイントを使用しない場合
@@ -197,6 +201,7 @@
 							$user_tel = $_POST['user_tel'];
 							$user_pt = $_POST['user_pt'];
 							$user_card = $_POST['user_card'];
+							$user_term = $_POST['user_term'];
 						} else {
 							//初回アクセス時
 							//セッションから会員情報を取得
@@ -207,6 +212,7 @@
 							$user_tel = $_SESSION['user_tel'];
 							$user_pt = $_SESSION['user_pt'];
 							$user_card = $_SESSION['user_card'];
+							$user_term = $_SESSION['user_term'];
 						}
 						echo '<form action="buy.php" method="POST">';
 							//会員情報
@@ -217,6 +223,7 @@
 							echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" required /></p>';
 							echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" required /></p>';
 							echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" required /></p>';
+							echo '<p>有効期限：<input type="text" name="user_term" value="' . $user_term . '" required /></p>';
 							echo '<input type="hidden" name="user_pt" value="' . $user_pt . '">';
 							echo '<p>累計ポイント：' . $user_pt . '</p>';
 							echo '<p>ポイントを　<input type="radio" name="pt" value="1" checked />使う　<input type="radio" name="pt" value="0" />使わない</p>';
@@ -242,6 +249,7 @@
 				$user_add = $_POST['user_add'];
 				$user_tel = $_POST['user_tel'];
 				$user_card = $_POST['user_card'];
+				$user_term = $_POST['user_term'];
 				$buy_price = $_POST['buy_price'];
 				
 				require_once('db.php');
@@ -310,6 +318,7 @@
 						$user_add = $_POST['user_add'];
 						$user_tel = $_POST['user_tel'];
 						$user_card = $_POST['user_card'];
+						$user_term = $_POST['user_term'];
 						//合計金額
 						$buy_price = $_POST['buy_price'];
 						//表示処理
@@ -328,6 +337,8 @@
 							echo '<p>電話番号：' . $user_tel . '</p>';
 							echo '<input type="hidden" name="user_card" value="' . $user_card . '" />';
 							echo '<p>クレジットカード番号：' . $user_card . '</p>';
+							echo '<input type="hidden" name="user_term" value="' . $user_term . '" />';
+							echo '<p>有効期限：' . $user_term . '</p>';
 							echo '<p>合計金額：' . $buy_price . '</p>';
 							//金額や、ボタンなど
 							echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
@@ -346,6 +357,7 @@
 							$user_add = $_POST['user_add'];
 							$user_tel = $_POST['user_tel'];
 							$user_card = $_POST['user_card'];
+							$user_term = $_POST['user_term'];
 							echo '<form action="buy.php" method="POST">';
 								//お客様情報
 								echo '<p>商品の送り先</p>';
@@ -355,6 +367,7 @@
 								echo '<p>住所：<input type="text" name="user_add" value="' . $user_add . '" required /></p>';
 								echo '<p>電話番号：<input type="text" name="user_tel" value="' . $user_tel . '" required /></p>';
 								echo '<p>クレジットカード番号：<input type="text" name="user_card" value="' . $user_card . '" required /></p>';
+								echo '<p>有効期限：<input type="text" name="user_term" value="' . $user_term . '" required /></p>';
 								//金額やボタンなど
 								echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
 								echo '<p>合計金額：' . $buy_price . '</p>';
@@ -372,6 +385,7 @@
 								echo '<p>住所：<input type="text" name="user_add" required /></p>';
 								echo '<p>電話番号：<input type="text" name="user_tel" required /></p>';
 								echo '<p>クレジットカード番号：<input type="text" name="user_card" required /></p>';
+								echo '<p>有効期限：<input type="text" name="user_term" required /></p>';
 								//金額やボタンなど
 								echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
 								echo '<p>合計金額：' . $buy_price . '</p>';
