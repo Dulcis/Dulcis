@@ -7,8 +7,17 @@ and open the template in the editor.
     Created on : 2014/07/01, 10:50:03
     Author     : student
 */
+#user_form{
+    border-style: solid;
+    margin: auto;
+    padding: auto;
+}
 
+#user_form from{
+
+}
 input { 
      height: 16px; 
-     line-height: 16px; 
+     line-height: 16px;
+     margin-top: 10px;
 }
