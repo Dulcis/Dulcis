@@ -156,6 +156,10 @@
                 "password": {
                     "regex": /^(?=.*[0-9a-zA-Z]).{8,15}$/,
                     "alertText": "パスワードが正しくありません"
+                },
+                "expirationDate":{
+                    "regex": /^(0[1-9]|1[0-2])$/,
+                    "alertText": "有効期限が正しくありません"
                 }
             };
             
