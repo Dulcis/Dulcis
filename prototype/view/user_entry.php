@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>会員情報登録画面</title>
     <link rel="stylesheet" href="../ref/css/validationEngine.jquery.css" type="text/css"/>
+    <link rel="stylesheet" href="../ref/css/form.css" type="text/css"/>
     <script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script>
     <script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="./../ref/js/jquery.validationEngine-ja.js"></script>
@@ -12,7 +13,6 @@
     <script type="text/javascript" src="./../ref/js/form.js"></script>
 </head>
 <body>
-<div id="user_form">
     <?php
         //パスの設定
         require_once('include_path.php');
@@ -22,7 +22,7 @@
         //データベースへ接続
         require_once('db.php');
         //require_once('session_start.php');
-        echo '<h3>会員情報登録画面</h3>';
+        echo '<div id="user_form"><h3>会員情報登録画面</h3>';
         if(!isset($_SESSION['user_id'])) {
             //ユーザがログインしていない場合（非会員状態時）
             if(isset($_POST['fase1']) || isset($_POST['fase2']) || isset($_POST['fase3'])) {
@@ -59,14 +59,14 @@
                     //確認ボタンが押されたとき
                     echo '<p>以下の内容で登録します。よろしいですか？</p>';
                     echo '<form action="user_entry.php" method="POST">';
-                    echo'<p><label for="user_name" accesskey="n">名前</label><br>' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /></p>';
-                    echo'<p><label for="user_mailadd" accesskey="m">メールアドレス</label><br>' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /></p>';
-                    echo'<p><label for="user_pw" accesskey="p">パスワード</label><br>' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /></p>';
-                    echo'<p><label for="user_post" accesskey="z">郵便番号</label><br>' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /></p>';
-                    echo'<p><label for="user_add" accesskey="a">住所</label><br>' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /></p>';
-                    echo'<p><label for="user_tel" accesskey="t">電話番号</label><br>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /></p>';
-                    echo'<p><label for="user_card" accesskey="c">クレジットカード番号</label><br>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /></p>';
-                    echo'<p>有効期限：<br>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /></p>';
+                    echo'<h4>名前</h4>' . $user_name . '<input type="hidden" name="user_name" value="' . $user_name . '" /><br>';
+                    echo'<h4>メールアドレス</h4>' . $user_mailadd . '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" /><br>';
+                    echo'<h4>パスワード</h4>' . $user_pw . '<input type="hidden" name="user_pw" value="' . $user_pw . '" /><br>';
+                    echo'<h4>郵便番号</h4>' . $user_post . '<input type="hidden" name="user_post" value="' . $user_post . '" /><br>';
+                    echo'<h4>住所</h4>' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /><br>';
+                    echo'<h4>電話番号</h4>>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /><br>';
+                    echo'<h4>クレジットカード番号</h4>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /><br>';
+                    echo'<h4>有効期限</h4>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /><br>';
                     echo'<input type="submit" value="変更" name="fase2" />';
                     echo'<input type="submit" value="登録" name="fase3" />';
                     echo'</form>';
@@ -80,17 +80,16 @@
 
                     }
                     echo '<form id="user_registration" action="user_entry.php" method="POST">';
-                    echo'<p><label for="user_name" accesskey="n">名前</label><br><input type="text" name="user_name" maxlength="20" class="validate[required]"/></p>';
-                    echo'<p><label for="user_mailadd" accesskey="m">メールアドレス</label><br><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
-                    echo'<p><label for="user_pw" accesskey="p">パスワード</label><br><input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)</p>';
-                    echo'<p><label for="user_pwch" accesskey="o">パスワード（確認）</label><br><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]"/></p>';
-                    echo'<p><label for="user_post" accesskey="z">郵便番号</label><br><input type="text" name="user_post" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
-                    echo'<p><label for="user_add" accesskey="a">住所</label><br><input type="text" name="user_add"  class="validate[required]" /></p>';
-                    echo'<p><label for="user_tel" accesskey="t">電話番号<</label><br><input type="text" name="user_tel"  class="validate[required,custom[phone]]" /></p>';
-                    echo'<p><label for="user_card" accesskey="c">クレジットカード番号</label><br><input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /></p>';
-                    echo'<p><label for="user_term" accesskey="e">有効期限</label><br><input type="text" name="user_term" required /></p>';
+                    echo'<h4>名前</h4><input type="text" name="user_name" maxlength="20" class="validate[required]"/><br>';
+                    echo'<h4>メールアドレス</h4><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /><br>';
+                    echo'<h4>パスワード</h4><input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)<br>';
+                    echo'<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]"/><br>';
+                    echo'<h4>郵便番号</h4><input type="text" name="user_post" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /><br>';
+                    echo'<h4>住所</h4><input type="text" name="user_add"  class="validate[required]" /><br>';
+                    echo'<h4>電話番号</h4><input type="text" name="user_tel"  class="validate[required,custom[phone]]" /><br>';
+                    echo'<h4>クレジットカード番号</h4><input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /><br>';
+                    echo'<h4>有効期限</h4><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
                     echo'<input type="submit" value="確認" name="fase1" />';
-                    echo'<input type="reset" value="リセット" required />';
                     echo'</form>';
                     echo'<a href="index.php">トップへ戻る</a>';
                 } else if(isset($_POST['fase3'])) {
@@ -132,17 +131,16 @@
             } else {
                 //初回アクセス時
                 echo '<form id="user_registration" action="user_entry.php" method="POST">';
-                echo'<p><label for="user_name" accesskey="n">名前</label><br><input type="text" name="user_name" maxlength="20" class="validate[required]"/></p>';
-                echo'<p><label for="user_mailadd" accesskey="m">メールアドレス</label><br><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /></p>';
-                echo'<p><label for="user_pw" accesskey="p">パスワード</label><br><input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)</p>';
-                echo'<p><label for="user_pwch" accesskey="o">パスワード（確認）</label><br><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]"/></p>';
-                echo'<p><label for="user_post" accesskey="z">郵便番号</label><br><input type="text" name="user_post" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /></p>';
-                echo'<p><label for="user_add" accesskey="a">住所</label><br><input type="text" name="user_add"  class="validate[required]" /></p>';
-                echo'<p><label for="user_tel" accesskey="t">電話番号<</label><br><input type="text" name="user_tel"  class="validate[required,custom[phone]]" /></p>';
-                echo'<p><label for="user_card" accesskey="c">クレジットカード番号</label><br><input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /></p>';
-                echo'<p><label for="user_term" accesskey="e">有効期限</label><br><input type="text" name="user_term" required /></p>';
+                echo'<h4>名前</h4><input type="text" name="user_name" maxlength="20" class="validate[required]"/><br>';
+                echo'<h4>メールアドレス</h4><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailCallPHP] text-input" /><br>';
+                echo'<h4>パスワード</h4>  <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /><br>';
+                echo'<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]"/><br>';
+                echo'<h4>郵便番号</h4><input type="text" name="user_post" maxlength="7" class="validate[required,custom[zip]]" onKeyUp="AjaxZip3.zip2addr(this,\'\',\'user_add\',\'user_add\');" /><br>';
+                echo'<h4>住所</h4><input type="text" name="user_add"  class="validate[required]" /><br>';
+                echo'<h4>電話番号</h4><input type="text" name="user_tel"  class="validate[required,custom[phone]]" /><br>';
+                echo'<h4>クレジットカード番号</h4><input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /><br>';
+                echo'<h4>有効期限</h4><span class="exampleText">例：07/14</span><br><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
                 echo'<input type="submit" value="確認" name="fase1" />';
-            echo'<input type="reset" value="リセット" />';
             echo'</form>';
         }
         } else {
@@ -151,9 +149,9 @@
             echo '<a href="index.php">トップへ戻る</a>';
         }
         //パーツ導入
+        echo('</div>');
         require_once('ranking_menu.php');
         require_once('footer_menu.php');
     ?>
-</div>
 </body>
 </html>
