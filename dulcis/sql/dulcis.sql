@@ -3,12 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2014 年 5 朁E22 日 05:03
+-- Generation Time: 2014 年 6 朁E14 日 18:34
 -- サーバのバージョン： 5.6.16
 -- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,14 +24,16 @@ SET time_zone = "+00:00";
 --
 -- テーブルの構造 `cart`
 --
+-- 作成日時： 2014 年 6 朁E14 日 17:52
+--
 
 CREATE TABLE IF NOT EXISTS `cart` (
   `cno` int(7) NOT NULL AUTO_INCREMENT COMMENT 'カート番号',
   `mno` int(7) NOT NULL COMMENT '会員番号',
   `ino` int(5) NOT NULL COMMENT '商品番号',
   `csum` int(3) NOT NULL COMMENT '数量',
-  PRIMARY KEY (`cno`),
-  KEY `mno` (`mno`),
+  PRIMARY KEY (`cno`,`mno`,`ino`),
+  KEY `mno` (`mno`,`ino`),
   KEY `ino` (`ino`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='カートデータが格納されている。非会員はセッションにカートを保持する。' AUTO_INCREMENT=1 ;
 
@@ -40,6 +41,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 
 --
 -- テーブルの構造 `dreview`
+--
+-- 作成日時： 2014 年 5 朁E22 日 04:56
 --
 
 CREATE TABLE IF NOT EXISTS `dreview` (
@@ -54,6 +57,8 @@ CREATE TABLE IF NOT EXISTS `dreview` (
 --
 -- テーブルの構造 `genre`
 --
+-- 作成日時： 2014 年 5 朁E22 日 02:45
+--
 
 CREATE TABLE IF NOT EXISTS `genre` (
   `gno` int(2) NOT NULL AUTO_INCREMENT COMMENT 'ジャンル番号',
@@ -66,6 +71,8 @@ CREATE TABLE IF NOT EXISTS `genre` (
 --
 -- テーブルの構造 `item`
 --
+-- 作成日時： 2014 年 6 朁E14 日 18:27
+--
 
 CREATE TABLE IF NOT EXISTS `item` (
   `ino` int(5) NOT NULL AUTO_INCREMENT COMMENT '商品番号',
@@ -74,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `isum` int(6) NOT NULL DEFAULT '0' COMMENT '在庫数',
   `gno` int(2) NOT NULL COMMENT 'ジャンル番号',
   `ico` text NOT NULL COMMENT 'コメント',
+  `iimg` varchar(100) NOT NULL COMMENT '商品画像',
   PRIMARY KEY (`ino`),
   KEY `gno` (`gno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品データが格納されている。' AUTO_INCREMENT=1 ;
@@ -83,23 +91,28 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 -- テーブルの構造 `line`
 --
+-- 作成日時： 2014 年 6 朁E14 日 18:14
+--
 
 CREATE TABLE IF NOT EXISTS `line` (
-  `lno` bigint(13) NOT NULL AUTO_INCREMENT COMMENT '注文明細番号',
   `ono` int(10) NOT NULL COMMENT '注文番号',
+  `lno` int(2) NOT NULL COMMENT '注文明細番号',
   `ino` int(5) NOT NULL COMMENT '商品番号',
   `lprice` int(6) NOT NULL COMMENT '単価',
   `lsum` int(6) NOT NULL COMMENT '数量',
-  `lpt` int(6) DEFAULT NULL DEFAULT '0' COMMENT 'ポイント数',
-  PRIMARY KEY (`lno`),
-  KEY `ono` (`ono`),
+  `lpt` int(6) DEFAULT NULL COMMENT 'ポイント数',
+  PRIMARY KEY (`lno`,`ono`),
+  KEY `ono` (`ono`,`ino`),
   KEY `ino` (`ino`),
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='注文明細データが格納されている。' AUTO_INCREMENT=1 ;
+  KEY `ino_2` (`ino`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='注文明細データが格納されている。';
 
 -- --------------------------------------------------------
 
 --
 -- テーブルの構造 `member`
+--
+-- 作成日時： 2014 年 5 朁E22 日 04:17
 --
 
 CREATE TABLE IF NOT EXISTS `member` (
@@ -121,6 +134,8 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 -- テーブルの構造 `notice`
 --
+-- 作成日時： 2014 年 5 朁E22 日 04:39
+--
 
 CREATE TABLE IF NOT EXISTS `notice` (
   `nno` int(4) NOT NULL AUTO_INCREMENT COMMENT 'お知らせ番号',
@@ -134,6 +149,8 @@ CREATE TABLE IF NOT EXISTS `notice` (
 
 --
 -- テーブルの構造 `order`
+--
+-- 作成日時： 2014 年 5 朁E22 日 03:59
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
@@ -157,6 +174,8 @@ CREATE TABLE IF NOT EXISTS `order` (
 --
 -- テーブルの構造 `review`
 --
+-- 作成日時： 2014 年 5 朁E22 日 04:59
+--
 
 CREATE TABLE IF NOT EXISTS `review` (
   `rno` int(8) NOT NULL AUTO_INCREMENT COMMENT 'レビュー番号',
@@ -167,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `mno` int(7) NOT NULL COMMENT '会員番号',
   `ino` int(5) NOT NULL COMMENT '商品番号',
   PRIMARY KEY (`rno`),
-  KEY `mno` (`mno`),
+  KEY `mno` (`mno`,`ino`),
   KEY `ino` (`ino`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='レビューデータが格納されている。レビューは会員のみ投稿できる。' AUTO_INCREMENT=1 ;
 
@@ -211,8 +230,8 @@ ALTER TABLE `order`
 -- テーブルの制約 `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ino`) REFERENCES `item` (`ino`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`mno`) REFERENCES `member` (`mno`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`mno`) REFERENCES `member` (`mno`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ino`) REFERENCES `item` (`ino`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
