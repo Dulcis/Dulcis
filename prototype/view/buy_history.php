@@ -68,6 +68,7 @@
 					echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
 					echo '購入価格：' . $item_price . '円<br />';
 					echo '購入数量：' . $line_sum . '<br />';
+					echo '小計：' . $item_price * $line_sum . '円<br />';
 					echo '発生ポイント：' . $line_pt . '<br />';
 					echo '<br />';
 				}
