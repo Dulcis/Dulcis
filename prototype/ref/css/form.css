@@ -23,6 +23,7 @@ body{
     font-size: 15px;
     border: 1px solid orange;
     border-radius: 8px;
+    padding: 20px;
     margin-right: 500px;
     position: relative;
     top: 10px;

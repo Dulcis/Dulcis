@@ -3,6 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="../ref/css/validationEngine.jquery.css" type="text/css"/>
+<link rel="stylesheet" href="../ref/css/form.css" type="text/css"/>
+<script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="./../ref/js/jquery.validationEngine-ja.js"></script>
+<script type="text/javascript" src="./../ref/js/jquery.validationEngine.js"></script>
+<script type="text/javascript" src="./../ref/js/form.js"></script>
 <title>ログイン画面</title>
 </head>
 <body>
@@ -14,6 +20,8 @@
 		require_once('left_menu.php');
 		//データベースへ接続
 		require_once('db.php');
+                
+                echo '<div id="user_form">';
 		//require_once('session_start.php');
 		if(!isset($_SESSION['user_id'])) {
 			//ログイン状態ではない場合
@@ -29,7 +37,7 @@
 				if(!mysqli_num_rows($result) == 1) {
 					//ログイン失敗時
 					echo '<p>ログインに失敗しました。</p>';
-					echo '<p><a href="index.php">戻る</a></p>';
+					echo '<p><a href="index.php">戻る</a></p></div>';
 				} else {
 					//ログイン成功時
 					while($row = mysqli_fetch_array($result)) {
@@ -47,21 +55,21 @@
 						
 					}
 					echo '<p>ログインが完了しました。</p>';
-					echo '<p><a href="index.php">トップへ戻る</a></p>';
+					echo '<p><a href="index.php">トップへ戻る</a></p></div>';
 				}
 			} else {
-				echo '<p>ログイン画面</p>';
-				echo '<form action="login.php" method="POST">';
-					echo '<p>メールアドレス<input type="text" name="user_mailadd" required /></p>';
-					echo '<p>パスワード<input type="password" name="user_pw" required /></p>';
+				echo '<h3>ログイン画面</h3>';
+				echo '<form id="user_registration" action="login.php" method="POST">';
+					echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email]]" /></p>';
+					echo '<h4>パスワード</h4><input type="password" name="user_pw" class="validate[required,custom[password]]" /></p>';
 					echo '<p><input type="submit" value="ログイン" name="fase1" /></p>';
 				echo '</form>';
-				echo '<p><a href="index.php">トップへ戻る</a></p>';
+				echo '<p><a href="index.php">トップへ戻る</a></p></div>';
 			}
 		} else {
 			//ログイン状態である場合
 			echo '<p>既にログイン状態です。</p>';
-			echo '<p><a href="index.php">トップへ戻る</a></p>';
+			echo '<p><a href="index.php">トップへ戻る</a></p></div>';
 		}
 		//パーツ導入
 		require_once('ranking_menu.php');
