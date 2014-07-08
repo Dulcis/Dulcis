@@ -34,26 +34,44 @@
 				echo '<a href="index.php">トップへ戻る</a>';
 			} else {
 				//購入履歴がある場合
+				$first_flg = 0;
+				$old_date = 0;
 				while($row = mysqli_fetch_array($result)) {
 					//SQLの結果からデータを取得
 					$item_id = $row['ino'];
 					$item_name = $row['iname'];
-					$item_img = $row['iimg'];
 					$genre_id = $row['gno'];
 					$genre_name = $row['gname'];
 					$item_price = $row['lprice'];
 					$line_sum = $row['lsum'];
 					$line_pt = $row['lpt'];
 					$order_date = $row['odate'];
+					$order_sum = $row['osum'];
+					
 					//表示処理
+					//初回かどうかの判断
+					if($first_flg = 0) {
+						//初回ならば表示する
+						echo '購入日：' . $order_date . '<br />';
+						echo '合計金額：' . $order_sum . '円<br />';
+					} else if($old_date == $order_date) {
+						//同一の注文票ならば表示しない
+					} else {
+						//別の注文票ならば表示する
+						echo '購入日：' . $order_date . '<br />';
+						echo '合計金額：' . $order_sum . '円<br />';
+					}
+					$first_flg = 1;
+					$old_date = $order_date;
+					
 					echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
 					echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
-					echo '<a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . '" /></a>';
-					echo '購入価格：' . $item_price . '<br />';
+					echo '購入価格：' . $item_price . '円<br />';
 					echo '購入数量：' . $line_sum . '<br />';
 					echo '発生ポイント：' . $line_pt . '<br />';
-					echo '購入日：' . $order_date . '<br />';
+					echo '<br />';
 				}
+				$count = 0;
 				echo '<a href="index.php">トップへ戻る</a>';
 			}
 		} else {
