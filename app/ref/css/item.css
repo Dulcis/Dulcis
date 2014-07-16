@@ -1,0 +1,15 @@
+#iimg {
+    float:left;
+}
+
+#stxt {
+    float:left;
+    padding-top:20px;
+    padding-left:20px;
+}
+
+#ltxt {
+    clear:both;
+    width:78%;
+    float:right;
+}
