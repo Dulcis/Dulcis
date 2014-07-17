@@ -4,12 +4,12 @@
 オランゲ#FF8F22
 --------------------------*/
 body {
-    font-family:  sans-serif;
+    font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     margin: 0px;
     padding: 0px;
-	font-size:16px;
+	font-size:13px;
 	color:black;
-    
+
 }
 
 #page-top {

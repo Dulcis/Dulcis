@@ -1,12 +1,12 @@
 
 #header {
-	height: 150px;
+	height: 80px;
 	padding-top:5px;
     padding-left:10px;
     padding-right:5px;
-     
-    color:black;
-    width: 100%;
+    clear: both;
+    color: #CCCCCC;
+    min-width: 1000px;
 background: rgb(255,255,255); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
@@ -21,6 +21,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #logo {
     float:left;
     outline: none;
+    box-sizing: border-box;
+}
+
+#logo img {
+    height: 55%;
+    width: 55%;
 }
 
 #header p {
@@ -28,18 +34,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 #header #box {
-    margin-right:auto;
-    margin-left:auto;
-    margin-top:40px;
-    width:50%;
+    float:left;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:40px;
+    width: 500px;
+    clear: right;
 }
+.search_text{
+    font-size: 15px;
+    box-sizing: border-box;
+    height: 33px;
+    width:87%;
+}
+.search_button {
+    box-sizing: border-box;
+    height: 33px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+    background-color: #5B626A;
+    width:13%;
+    color: #FFF;
+    border: medium none;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+.search_bar{
+    box-sizing: border-box;
+    display: inline;
+    width:auto;
+    height: 30px;
+    }
 
+
+#header #tab {
+    box-sizing: border-box;
+    float:right;
+    padding-top: 40px;
+    display: inline;
+    margin-right: 20px;
+}
 #header #tab a {
 	transition-property: border;
 	transition-duration: 1s;
 	transition-delay: 0s;
-	font-size:20px;
-	float:right;
     color:black;
     margin-right:10px;
     padding-top:5px;
