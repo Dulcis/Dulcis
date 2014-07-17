@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" charset="utf-8"/>
 <title>商品検索結果一覧画面</title>
 </head>
@@ -34,7 +35,7 @@
 					order by item.iname";
 			$result = mysqli_query($dbc, $query);
 			mysqli_close($dbc);
-			echo '<h1>検索ワード：' . $_POST['item_word'] . '</h1>';
+			echo '<br><h1>検索ワード：' . $_POST['item_word'] . '</h1><br>';
 			if(mysqli_num_rows($result) == 0) {
 				//該当する商品が見つからない場合
 				echo '該当する商品が見つかりませんでした。';

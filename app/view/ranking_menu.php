@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
 <link rel="stylesheet" href="../ref/css/reset.css">
 <link rel="stylesheet" href="../ref/css/style.css" media="screen" type="text/css" />
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" />

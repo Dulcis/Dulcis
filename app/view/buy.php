@@ -22,6 +22,7 @@
     require_once('ipath.php');
     //パーツ導入
     require_once('header_menu.php');
+		echo '<div id="main">';
     require_once('left_menu.php');
     //require_once('session_start.php');
     if(isset($_SESSION['user_id'])) {
@@ -125,12 +126,12 @@
                     $item_price = $row['iprice'];
                     $item_sum = $row['csum'];
                     //表示処理
-                    echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
+					echo '<div id="view">';
+                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a></div>';
+                    echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
                     echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
-                    echo '<a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . '" /></a><br />';
                     echo '価格：' . $item_price . '<br />';
-                    echo '数量：' . $item_sum . '<br />';
-                    echo '<br />';
+                    echo '数量：' . $item_sum . '</div></div>';
 
                     //支払合計金額を集計
                     $buy_price += $item_price * $item_sum;
@@ -157,7 +158,7 @@
                     $buy_pt = $_POST['buy_pt'];
 
                     //表示処理
-                    echo '<div id="user_form"><form action="buy.php" method="POST">';
+                    echo '<div id="view"><div id="user_form"><form action="buy.php" method="POST">';
                     //会員情報
                     echo '<h3>商品の送り先</h3>';
                     echo '<input type="hidden" name="user_name" value="' . $user_name . '" />';
@@ -197,10 +198,10 @@
                     echo '<p>今回発生するポイント：' . $buy_pt . '</p>';
                     echo '<input type="hidden" name="buy_pt" value="' . $buy_pt . '">';
                     echo '<p>以上の内容で購入手続きを行います。よろしいですか？</p>';
-                    echo '<input type="submit" name="query" value="決済" />';
+                    echo '<input type="submit" name="query" value="購入" />';
                     echo '<input type="submit" name="change" value="変更" />';
                     echo '<a href="cart.php">カートへ戻る</a>';
-                    echo '</form></div>';
+                    echo '</form></div></div>';
 
                 } else {
                     if(isset($_POST['change'])){
@@ -225,7 +226,7 @@
                         $user_card = $_SESSION['user_card'];
                         $user_term = $_SESSION['user_term'];
                     }
-                    echo '<div id="user_form"><form id="user_registration" action="buy.php" method="POST">';
+                    echo '<div id="view"><div id="user_form"><form id="user_registration" action="buy.php" method="POST">';
                     //会員情報
                     echo '<h3>商品の送り先</h3>';
                     echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /><input type="hidden" name="user_mail" id = "user_mail" value="' . $user_mailadd . '"><br>';
@@ -245,7 +246,7 @@
                     echo '<input type="hidden" name="buy_pt" value="' . $buy_pt . '" />';
                     echo '<input type="submit" name="check" value="確認" />';
                     echo '<a href="cart.php">カートへ戻る</a>';
-                    echo '</form></div>';
+                    echo '</form></div></div>';
                 }
             }
         }
@@ -310,12 +311,12 @@
                     $item_img = $cart['item_img'];
                     $item_sum = $cart['item_sum'];
                     //表示処理
-                    echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
+					echo '<div id="view">';
+                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a></div>';
+                    echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
                     echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
-                    echo '<a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . '" /></a><br />';
                     echo '価格：' . $item_price . '<br />';
-                    echo '数量：' . $item_sum . '<br />';
-                    echo '<br />';
+                    echo '数量：' . $item_sum . '</div></div>';
 
                     //支払合計金額を集計
                     $buy_price += $item_price * $item_sum;
@@ -333,7 +334,7 @@
                     //合計金額
                     $buy_price = $_POST['buy_price'];
                     //表示処理
-                    echo '<div id="user_form"><form action="buy.php" method="POST">';
+                    echo '<div id="view"><div id="user_form"><form action="buy.php" method="POST">';
                     //お客様情報
                     echo '<h3>商品の送り先</h3>';
                     echo '<input type="hidden" name="user_name" value="' . $user_name . '" />';
@@ -354,10 +355,10 @@
                     //金額や、ボタンなど
                     echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
                     echo '<p>以上の内容で購入手続きを行います。よろしいですか？</p>';
-                    echo '<input type="submit" name="query" value="決済" />';
+                    echo '<input type="submit" name="query" value="購入" />';
                     echo '<input type="submit" name="change" value="変更" />';
                     echo '<a href="cart.php">カートへ戻る</a>';
-                    echo '</form></div>';
+                    echo '</form></div></div>';
 
                 } else {
                     if(isset($_POST['change'])){
@@ -369,7 +370,7 @@
                         $user_tel = $_POST['user_tel'];
                         $user_card = $_POST['user_card'];
                         $user_term = $_POST['user_term'];
-                        echo '<div id="user_form"><form id="user_registration" action="buy.php" method="POST">';
+                        echo '<div id="view"><div id="user_form"><form id="user_registration" action="buy.php" method="POST">';
                         //お客様情報
                         echo '<h3>商品の送り先</h3>';
                         echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" "validate[required]" /></p>';
@@ -384,10 +385,10 @@
                         echo '<p>合計金額：' . $buy_price . '</p>';
                         echo '<input type="submit" name="check" value="確認" />';
                         echo '<a href="cart.php">カートへ戻る</a>';
-                        echo '</form></div>';
+                        echo '</form></div></div>';
                     } else {
                         //初回アクセス時
-                        echo '<div id="user_form"><form  id="user_registration" action="buy.php" method="POST">';
+                        echo '<div id="view"><div id="user_form"><form  id="user_registration" action="buy.php" method="POST">';
                         //お客様情報
                         echo '<h3>商品の送り先</h3>';
                         echo'<h4>名前</h4><input type="text" name="user_name" maxlength="20" class="validate[required]"/><br>';
@@ -402,12 +403,13 @@
                         echo '<p>合計金額：' . $buy_price . '</p>';
                         echo '<input type="submit" name="check" value="確認" />';
                         echo '<a href="cart.php">カートへ戻る</a>';
-                        echo '</form></div>';
+                        echo '</form></div></div>';
                     }
                 }
             }
         }
     }
+	echo '</div>';
     //パーツ導入
     require_once('ranking_menu.php');
     require_once('footer_menu.php');

@@ -31,7 +31,7 @@
 			echo '<div id="tab"><a href=buy_history.php>購入履歴</a>';
 			echo '<a href=user_info_edit.php>会員情報変更</a>';
 			echo '<a href=logout.php>ログアウト</a>';
-			echo '<a href=cart.php>カート;</a></div>';
+			echo '<a href=cart.php>カート</a></div>';
 
 			echo '</div>';
 		} else {

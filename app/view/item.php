@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="./../ref/js/jquery-1.8.2.min.js"></script>
 <link rel="stylesheet" href="../ref/css/item.css" type="text/css" charset="utf-8"/>
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" charset="utf-8"/>
 <title>商品詳細画面</title>
@@ -14,8 +15,10 @@
 		require_once('ipath.php');
 		//パーツ導入
 		require_once('header_menu.php');
+echo '<div id="main>';
 		require_once('left_menu.php');
 		//データベースへ接続
+echo '<div id="view">';
 		require_once('db.php');
 		//require_once('session_start.php');
 		if(isset($_GET['item_id'])) {
@@ -99,7 +102,7 @@
 				echo '<input type="hidden" name="genre_name" value="' . $genre_name . '" />';
 				echo '<input type="hidden" name="item_img" value="' . $item_img . '" />';
 
-				echo '<div id="iimg"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . '" /></div>';
+				echo '<div id="iimg"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . '*/"width="200" height="200" /></div>';
 				echo '<div id="stxt"><p>商品名：' . $item_name . '　　　ジャンル：' . $genre_name . '</p>';
 				echo '<p>税込み：' . $item_price . '円</p>';
 				echo '<p>残り：' . $item_sum . '個    <input type="submit" value="カートに入れる" /></p>';
@@ -107,7 +110,7 @@
 
 				echo '<div id="ltxt"><hr><p>----商品詳細情報----<br />' . nl2br($item_co) . '<hr></p></div>';
 
-			echo '</form>';
+			echo '</div></div></form>';
 		}
 		//パーツ導入
 		//require_once('ranking_menu.php');

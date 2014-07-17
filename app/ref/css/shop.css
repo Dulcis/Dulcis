@@ -39,16 +39,13 @@ a {
     outline: none;
 }
 
-#footer {
-	float:left;
-    color:black;
-    
-}
+
 
 #main {
     max-width:100%;
     min-height:500px;
-    
+        padding-top:10px;
+    padding-left:10px;
     
 }
 

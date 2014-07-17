@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="../ref/css/item.css" type="text/css" charset="utf-8"/>
+<link rel="stylesheet" href="../ref/css/cart.css" type="text/css" charset="utf-8"/>
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" charset="utf-8"/>
 <title>カート画面</title>
 </head>
@@ -16,7 +16,7 @@
 		require_once('header_menu.php');
 		echo '<div id="main">';
 		require_once('left_menu.php');
-		echo '<div id="view">';
+
 		//データベースへ接続
 		require_once('db.php');
 		//require_once('session_start.php');
@@ -65,7 +65,7 @@
 					$item_price = $row['iprice'];
 					$item_sum = $row['csum'];
 					//表示処理
-					echo '<form action="cart.php" method="POST">';
+					echo '<div id="view"><form action="cart.php" method="POST">';
 						echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 						echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
 						echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
@@ -76,7 +76,7 @@
 				}
 				echo '<form action="buy.php" method="POST">';
 					echo '<input type="submit" name="buy" value="購入手続きへ進む" />';
-				echo '</form>';
+				echo '</form></div>';
 			}
 		} else {
 			//会員でない場合
@@ -116,7 +116,7 @@
 						$item_img = $cart['item_img'];
 						$item_sum = $cart['item_sum'];
 							//表示処理
-							echo '<form action="cart.php" method="POST">';
+							echo '<div id="view"><form action="cart.php" method="POST">';
 								echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 								echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
 								echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
@@ -127,14 +127,13 @@
 					}
 					echo '<form action="buy.php" method="POST">';
 						echo '<input type="submit" name="buy" value="購入手続きへ進む" />';
-					echo '</form>';
+					echo '</form></div>';
 				}
 			} else {
 				//カートが無かった場合
 				echo 'カートに商品が入っていません。';
 			}
 			echo '</div>';
-echo '</div>';
 		}
 		//パーツ導入
 		require_once('ranking_menu.php');

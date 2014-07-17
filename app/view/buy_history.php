@@ -14,6 +14,7 @@
 		require_once('ipath.php');
 		//パーツ導入
 		require_once('header_menu.php');
+echo '<div id="main">';
 		require_once('left_menu.php');
 
 		
@@ -87,7 +88,7 @@
 			echo '会員専用ページとなっております。';
 			echo 'ログインしてからもう一度アクセスしてください。';
 		}
-		echo '</div>';
+		echo '</div></div>';
 		//パーツ導入
 		//require_once('ranking_menu.php');
 		require_once('footer_menu.php');
