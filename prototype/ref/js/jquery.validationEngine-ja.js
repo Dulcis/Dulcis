@@ -167,6 +167,3 @@
     };
     $.validationEngineLanguage.newLang();
 })(jQuery);
-
-
-    
