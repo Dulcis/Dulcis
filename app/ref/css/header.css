@@ -31,6 +31,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 #header p {
     font-size:16px;
+    margin: 0px;
 }
 
 #header #box {
@@ -38,9 +39,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    padding-top:40px;
+    padding-top: 33px;
     width: 500px;
     clear: right;
+}
+#header #box.member_box {
+    padding-top: 16px;
 }
 .search_text{
     font-size: 15px;

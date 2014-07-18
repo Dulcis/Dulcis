@@ -22,7 +22,7 @@
 			//echo '<p>ようこそ' . $user_name . 'さん。  ';
 			//echo '保有ポイント:' . $user_pt .'</p>';
 
-			echo '<div id="box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
+			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
 			echo '<form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text""/>';
 				echo '<input type="submit" value="検索" class="search_button"/>';
