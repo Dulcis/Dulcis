@@ -1,0 +1,16 @@
+#iimg {
+    float:left;
+}
+
+#stxt {
+    float:left;
+    padding-top:30px;
+    padding-left:20px;
+}
+
+#cart {
+    width:80%;
+    height:160px;
+    float:right;
+    
+}
