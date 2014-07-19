@@ -22,10 +22,10 @@
 			//echo '<p>ようこそ' . $user_name . 'さん。  ';
 			//echo '保有ポイント:' . $user_pt .'</p>';
 
-			echo '<div id="box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
-			echo '<form id="form" action="item_select.php" method="POST">';
-				echo '<input type="text" name="item_word" size="50"/>';
-				echo '<input type="submit" value="検索" />';
+			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
+			echo '<form id="form" action="item_select.php" method="POST" class="search_bar">';
+				echo '<input type="text" name="item_word" class="search_text""/>';
+				echo '<input type="submit" value="検索" class="search_button"/>';
 			echo '</form></div>';
 
 			echo '<div id="tab"><a href=buy_history.php>購入履歴</a>';
@@ -40,9 +40,9 @@
 			echo '<div id="logo">';
 			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
 
-			echo '<div id="box"><form id="form" action="item_select.php" method="POST">';
-				echo '<input type="text" name="item_word" size="50"/>';
-				echo '<input type="submit" value="検索" />';
+			echo '<div id="box" class="member_box"><p>ようこそ、ゲストさん</p><form id="form" action="item_select.php" method="POST" class="search_bar">';
+				echo '<input type="text" name="item_word" class="search_text"/>';
+				echo '<input type="submit" value="検索" class="search_button"/>';
 			echo '</form></div>';
 
 			echo '<div id="tab"><a href="login.php">ログイン</a>';

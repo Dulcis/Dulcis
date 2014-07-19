@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="../ref/js/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="../ref/css/cart.css" type="text/css" charset="utf-8"/>
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" charset="utf-8"/>
 <title>カート画面</title>
@@ -16,7 +17,7 @@
 		require_once('header_menu.php');
 		echo '<div id="main">';
 		require_once('left_menu.php');
-
+		echo '<div id="view">';
 		//データベースへ接続
 		require_once('db.php');
 		//require_once('session_start.php');
@@ -65,18 +66,18 @@
 					$item_price = $row['iprice'];
 					$item_sum = $row['csum'];
 					//表示処理
-					echo '<div id="view"><form action="cart.php" method="POST">';
+					echo '<div id="cart"><form action="cart.php" method="POST">';
 						echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 						echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
 						echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
 						echo '<p>税込み：' . $item_price . '　　　個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
 						echo '<p><input type="submit" name="change" value="変更" ><input type="submit" name="delete" value="削除" /></p></div>';
-					echo '</form>';
+					echo '</form></div><hr>';
 					echo '<br />';
 				}
 				echo '<form action="buy.php" method="POST">';
 					echo '<input type="submit" name="buy" value="購入手続きへ進む" />';
-				echo '</form></div>';
+				echo '</form>';
 			}
 		} else {
 			//会員でない場合
@@ -116,27 +117,28 @@
 						$item_img = $cart['item_img'];
 						$item_sum = $cart['item_sum'];
 							//表示処理
-							echo '<div id="view"><form action="cart.php" method="POST">';
+							echo '<div id="cart"><form action="cart.php" method="POST">';
 								echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 								echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
 								echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
 								echo '<p>税込み：' . $item_price . '    個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
 								echo '<p><input type="submit" name="change" value="変更" /><input type="submit" name="delete" value="削除" /></p></div>';
-							echo '</form>';
+							echo '</form></div><hr>';
 							echo '<br />';
 					}
 					echo '<form action="buy.php" method="POST">';
-						echo '<input type="submit" name="buy" value="購入手続きへ進む" />';
-					echo '</form></div>';
+						echo '<input type="submit" id="submit" name="buy" value="購入手続きへ進む" />';
+					echo '</form>';
 				}
 			} else {
 				//カートが無かった場合
 				echo 'カートに商品が入っていません。';
 			}
-			echo '</div>';
 		}
+			echo '</div></div>';
 		//パーツ導入
 		require_once('ranking_menu.php');
+		require_once('pagetop.php');
 		require_once('footer_menu.php');
 	?>
 </body>

@@ -86,7 +86,7 @@
                 echo '<input type="hidden" name="user_id" value="' . $user_id . '" > <input type="hidden" name="user_mail" id = "user_mail" value="' . $user_mailadd . '">';
                 echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /><br>';
                 echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
-                echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)<br>';
+                echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /><br>';
                 echo '<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /><br>';
                 echo '<h4>郵便番号</h4> <span class="exampleText">ハイフン(-)なし 例：1600000</span><br> <input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /><br>';
                 echo '<h4>住所</h4><input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /><br>';
@@ -200,7 +200,7 @@
             echo '<input type="hidden" name="user_id" value="' . $user_id . '" > <input type="hidden" name="user_mail" id = "user_mail" value="' . $user_mailadd . '">';
             echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /><br>';
             echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
-            echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /> (英数半角8文字以上15文字以内)<br>';
+            echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /><br>';
             echo '<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /><br>';
             echo '<h4>郵便番号</h4> <span class="exampleText">ハイフン(-)なし 例：1600000</span><br> <input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /><br>';
             echo '<h4>住所</h4><input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /><br>';

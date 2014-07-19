@@ -18,14 +18,11 @@
 		require_once('header_menu.php'); 
 		echo '<div id="main">';
 		require_once('left_menu.php');
-		echo '<div id="view">';
 		//require_once('slideshow.php');
-		echo '</div></div>';
+		echo '</div>';
 		require_once('ranking_menu.php');
+		require_once('pagetop.php');
 		require_once('footer_menu.php');
 	?>
-
-<p id="page-top"><a href="#wrap">PAGE TOP</a></p>
-
 </body>
 </html>

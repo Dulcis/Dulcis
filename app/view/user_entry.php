@@ -152,6 +152,7 @@
         //パーツ導入
         echo('</div>');
         //require_once('ranking_menu.php');
+		require_once('pagetop.php');
         require_once('footer_menu.php');
     ?>
 </body>

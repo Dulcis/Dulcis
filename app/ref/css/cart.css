@@ -1,16 +1,26 @@
 #iimg {
     float:left;
+    
+
 }
 
 #stxt {
     float:left;
     padding-top:30px;
     padding-left:20px;
+    height:150px;
 }
 
 #cart {
-    width:80%;
+    width:100%;
     height:160px;
     float:right;
     
+}
+
+#cart #submit {
+    float:right;
+    margin-top:200px;
+    margin-right:300px;
+    margin-bottom:200px;
 }

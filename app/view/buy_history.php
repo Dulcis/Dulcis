@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="../ref/css/common.css" type="text/css" charset="utf-8"/>
+<script type="text/javascript" src="../ref/js/jquery-1.8.2.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../ref/js/hidden.js" charset="UTF-8"></script>
 <title>購入履歴一覧画面</title>
 </head>
@@ -60,26 +61,26 @@ echo '<div id="main">';
 					if($first_flg = 0) {
 						//初回ならば表示する
 						echo '<dt>購入日：' . $order_date ;
-						echo '  合計金額：' . $order_sum . '円</dt>';
+						echo '  合計金額：' . $order_sum . '円</dt><dd>';
 					} else if($old_date == $order_date) {
 						//同一の注文票ならば表示しない
 					} else {
 						//別の注文票ならば表示する
 						echo '<dt>購入日：' . $order_date ;
-						echo '  合計金額：' . $order_sum . '円</dt>';
+						echo '  合計金額：' . $order_sum . '円</dt><dd>';
 					}
 					$first_flg = 1;
 					$old_date = $order_date;
 					
-					echo '<dd><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
+					echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
 					echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
 					echo '購入価格：' . $item_price . '円<br />';
 					echo '購入数量：' . $line_sum . '<br />';
 					echo '小計：' . $item_price * $line_sum . '円<br />';
 					echo '発生ポイント：' . $line_pt . '<br />';
-					echo '<br /></dd>';
+					echo '<br />';
 				}
-				echo '</dl>';
+				echo '</dd></dl>';
 				$count = 0;
 				echo '<a href="index.php">トップへ戻る</a>';
 			}
@@ -90,7 +91,7 @@ echo '<div id="main">';
 		}
 		echo '</div></div>';
 		//パーツ導入
-		//require_once('ranking_menu.php');
+		require_once('pagetop.php');
 		require_once('footer_menu.php');
 	?>
 </body>
