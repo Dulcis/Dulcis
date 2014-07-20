@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2014 年 7 朁E20 日 14:48
+-- Generation Time: 2014 年 7 朁E20 日 14:58
 -- サーバのバージョン： 5.6.16
 -- PHP Version: 5.5.11
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `app`
+-- Database: `prototype`
 --
 
 -- --------------------------------------------------------
