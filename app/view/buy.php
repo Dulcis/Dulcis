@@ -129,9 +129,9 @@
 					echo '<div id="view">';
                     echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="100" height="100" /></a></div>';
                     echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
-                    echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
-                    echo '価格：' . $item_price . '<br />';
-                    echo '数量：' . $item_sum . '</div></div>';
+                    //echo '<p><a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
+                    echo '<p>価格(税込)：' . $item_price . '</p>';
+                    echo '<p>個数：' . $item_sum . '</p></div></div>';
 
                     //支払合計金額を集計
                     $buy_price += $item_price * $item_sum;
@@ -160,7 +160,7 @@
                     //表示処理
                     echo '<div id="view"><div id="user_form"><form action="buy.php" method="POST">';
                     //会員情報
-                    echo '<h3>商品の送り先</h3>';
+                    echo '<h3>商品の送り先</h3><br>';
                     echo '<input type="hidden" name="user_name" value="' . $user_name . '" />';
                     echo '<p>名前：' . $user_name . '</p>';
                     echo '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" />';
@@ -195,11 +195,11 @@
                     echo '<input type="hidden" name="pt" value="' . $pt . '" />';
                     echo '<input type="hidden" name="user_pt" value="' . $user_pt . '" />';
                     echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
-                    echo '<p>今回発生するポイント：' . $buy_pt . '</p>';
+                    echo '<p>今回発生するポイント：' . $buy_pt . 'Pt</p>';
                     echo '<input type="hidden" name="buy_pt" value="' . $buy_pt . '">';
                     echo '<p>以上の内容で購入手続きを行います。よろしいですか？</p>';
-                    echo '<input type="submit" name="query" value="購入" />';
-                    echo '<input type="submit" name="change" value="変更" />';
+                    echo '<br><input type="submit" name="query" value="購入" />　';
+                    echo '<input type="submit" name="change" value="変更" />　';
                     echo '<a href="cart.php">カートへ戻る</a>';
                     echo '</form></div></div>';
 
@@ -237,14 +237,14 @@
                     echo '<h4>クレジットカード番号</h4><span class="exampleText">ハイフン(-)なし 例：4111111111111111</span><br><input type="text" name="user_card" value="' . $user_card . '"maxlength="16" class="validate[required,creditCard]" /><br>';
                     echo '<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '" class="validate[required,expirationDate]" /><br>';
                     echo '<input type="hidden" name="user_pt" value="' . $user_pt . '" class="validate[required,custom[expirationDate]]">';
-                    echo '<p>累計ポイント：' . $user_pt . '</p>';
+                    echo '<br><p>累計ポイント：' . $user_pt . 'Pt</p>';
                     echo '<p>ポイントを　<label><input type="radio" name="pt" value="1" checked id="pt" />使う</label>　<label><input type="radio" name="pt" value="0" />使わない</label></p>';
                     //金額やボタンなど
                     echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
-                    echo '<p>合計金額：' . $buy_price . '</p>';
-                    echo '<p>今回発生するポイント：' . $buy_pt . '</p>';
+                    echo '<p>合計金額：' . $buy_price . '円</p>';
+                    echo '<p>今回発生するポイント：' . $buy_pt . 'Pt</p>';
                     echo '<input type="hidden" name="buy_pt" value="' . $buy_pt . '" />';
-                    echo '<input type="submit" name="check" value="確認" />';
+                    echo '<br><input type="submit" name="check" value="確認" />　';
                     echo '<a href="cart.php">カートへ戻る</a>';
                     echo '</form></div></div>';
                 }
@@ -314,9 +314,9 @@
 					echo '<div id="view">';
                     echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="100" height="100" /></a></div>';
                     echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
-                    echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
-                    echo '価格：' . $item_price . '<br />';
-                    echo '数量：' . $item_sum . '</div></div>';
+                    //echo '<p><a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
+                    echo '<p>価格(税込)：' . $item_price . '</p>';
+                    echo '<p>個数：' . $item_sum . '</p></div></div>';
 
                     //支払合計金額を集計
                     $buy_price += $item_price * $item_sum;
@@ -336,7 +336,7 @@
                     //表示処理
                     echo '<div id="view"><div id="user_form"><form action="buy.php" method="POST">';
                     //お客様情報
-                    echo '<h3>商品の送り先</h3>';
+                    echo '<h3>商品の送り先</h3><br>';
                     echo '<input type="hidden" name="user_name" value="' . $user_name . '" />';
                     echo '<p>名前：' . $user_name . '</p>';
                     echo '<input type="hidden" name="user_mailadd" value="' . $user_mailadd . '" />';
@@ -355,8 +355,8 @@
                     //金額や、ボタンなど
                     echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
                     echo '<p>以上の内容で購入手続きを行います。よろしいですか？</p>';
-                    echo '<input type="submit" name="query" value="購入" />';
-                    echo '<input type="submit" name="change" value="変更" />';
+                    echo '<br><input type="submit" name="query" value="購入" />　';
+                    echo '<input type="submit" name="change" value="変更" />　';
                     echo '<a href="cart.php">カートへ戻る</a>';
                     echo '</form></div></div>';
 
@@ -400,8 +400,8 @@
                         echo'<h4>有効期限</h4><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
                         //金額やボタンなど
                         echo '<input type="hidden" name="buy_price" value="' . $buy_price . '" />';
-                        echo '<p>合計金額：' . $buy_price . '</p>';
-                        echo '<input type="submit" name="check" value="確認" />';
+                        echo '<br><p>合計金額：' . $buy_price . '円</p>';
+                        echo '<br><input type="submit" name="check" value="確認" />　';
                         echo '<a href="cart.php">カートへ戻る</a>';
                         echo '</form></div></div>';
                     }

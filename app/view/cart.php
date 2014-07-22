@@ -69,9 +69,10 @@
 					echo '<div id="cart"><form action="cart.php" method="POST">';
 						echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 						echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
-						echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
-						echo '<p>税込み：' . $item_price . '　　　個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
-						echo '<p><input type="submit" name="change" value="変更" ><input type="submit" name="delete" value="削除" /></p></div>';
+						echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a></p>';
+						echo '<p>価格(税込)：' . $item_price . '円</p>';
+						echo '<p>個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
+						echo '<p><input type="submit" name="change" value="変更" >　<input type="submit" name="delete" value="削除" /></p></div>';
 					echo '</form></div><hr>';
 					echo '<br />';
 				}
@@ -120,9 +121,10 @@
 							echo '<div id="cart"><form action="cart.php" method="POST">';
 								echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . 'width="150" height="150" /></a></div>';
 								echo '<div id="stxt"><input type="hidden" name="item_id" value="' . $item_id . '">';
-								echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>    <a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
-								echo '<p>税込み：' . $item_price . '    個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
-								echo '<p><input type="submit" name="change" value="変更" /><input type="submit" name="delete" value="削除" /></p></div>';
+								echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a></p>';
+								echo '<p>価格(税込)：' . $item_price . '円</p>';
+								echo '<p>個数：<input type="number" name="item_sum" value="' . $item_sum . '" min="0" max="99" /></p>';
+								echo '<p><input type="submit" name="change" value="変更" />　<input type="submit" name="delete" value="削除" /></p></div>';
 							echo '</form></div><hr>';
 							echo '<br />';
 					}

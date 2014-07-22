@@ -47,7 +47,7 @@
 					echo '<a href="item.php?item_id=' . $item_id . '">';
 						echo '<aside>';
 							echo '<strong>' . $item_name . '</strong>';
-							echo '<p>' . $item_price . '</p>';
+							echo '<p>' . $item_price . '円</p>';
 						echo '</aside>';
 					echo '<img src="' . ipath . $item_img . '" /*alt="' . $item_name . '*/"width="300" height="300" /><i></i></a>';
 					echo '<ul>';
@@ -78,7 +78,7 @@
 					echo '<a href="item.php?item_id=' . $item_id . '">';
 						echo '<aside>';
 							echo '<strong>' . $item_name . '</strong>';
-							echo '<p>' . $item_price . '</p>';
+							echo '<p>' . $item_price . '円</p>';
 						echo '</aside>';
 					echo '<img src="' . ipath . $item_img . '" /*alt="' . $item_name . '*/"width="300" height="300" /></a>';
 					echo '<ul>';

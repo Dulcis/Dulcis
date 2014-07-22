@@ -17,12 +17,12 @@
 			//表示処理
 			echo '<div id="header">';
 			echo '<div id="logo">';
-			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
+			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis" width="300" height="150" ></a></div>';
 
 			//echo '<p>ようこそ' . $user_name . 'さん。  ';
 			//echo '保有ポイント:' . $user_pt .'</p>';
 
-			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
+			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント： ' . $user_pt .'Pt</p>';
 			echo '<form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text""/>';
 				echo '<input type="submit" value="検索" class="search_button"/>';
@@ -38,7 +38,7 @@
 			//ログイン状態でない場合
 			echo '<div id="header">';
 			echo '<div id="logo">';
-			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
+			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis" width="300" height="150" ></a></div>';
 
 			echo '<div id="box" class="member_box"><p>ようこそ、ゲストさん</p><form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text"/>';

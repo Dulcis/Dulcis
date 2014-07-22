@@ -56,8 +56,8 @@
 					echo '<a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a>';
 					echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a></p>';
 					//echo '<p><a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
-					echo '<p>単価：' . $item_price . '</p>';
-					echo '<p>在庫数：' . $item_sum . '</p>';
+					echo '<p>価格(税込)：' . $item_price . '円</p>';
+					echo '<p>残り：' . $item_sum . '個</p>';
 					echo  '</div>';
 				}
 			}
@@ -92,8 +92,8 @@
 					echo '<a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a></br>';
 					echo '<p><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a></p></br>';
 					//echo '<p><a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a></p>';
-					echo '<p>単価：' . $item_price . '</p></br>';
-					echo '<p>在庫数：' . $item_sum . '</p></br>';
+					echo '<p>価格(税込)：' . $item_price . '円</p></br>';
+					echo '<p>残り：' . $item_sum . '個</p></br>';
 					echo  '</div>';
 				}
 			}

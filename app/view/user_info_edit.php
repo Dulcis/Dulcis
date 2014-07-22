@@ -69,7 +69,7 @@
                 echo'<h4>電話番号</h4>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /><br>';
                 echo'<h4>クレジットカード番号</h4>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /><br>';
                 echo'<h4>有効期限</h4>><br>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /><br>';
-                echo'<input type="submit" value="変更" name="fase2" />';
+                echo'<br><input type="submit" value="変更" name="fase2" />　';
                 echo'<input type="submit" value="確定" name="fase3" />';
                 echo'</form>';
                 //トップ画面へのリンク
@@ -157,7 +157,7 @@
                 echo'<h4>電話番号</h4>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /><br>';
                 echo'<h4>クレジットカード番号</h4>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /><br>';
                 echo'<h4>有効期限</h4>><br>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /><br>';
-                echo'<input type="submit" value="キャンセル" name="cancel" />';
+                echo'<br><input type="submit" value="キャンセル" name="cancel" />　';
                 echo'<input type="submit" value="確定" name="fase5" />';
                 echo'</form>';
                 //トップ画面へのリンク
@@ -207,7 +207,7 @@
             echo '<h4>電話番号</h4> <span class="exampleText">ハイフン(-)なし 例：0120000222</span><br> <input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /><br>';
             echo '<h4>クレジットカード番号</h4> <span class="exampleText">ハイフン(-)なし</span><br> <input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /><br>';
             echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '"  class="validate[required,custom[expirationUpdateDate]]" /><br>';
-            echo '<input type="submit" value="更新" name="fase1" />';
+            echo '<br><input type="submit" value="更新" name="fase1" />　';
             echo '<input type="submit" value="削除" name="fase4" />';
             echo '</form>';
             //トップ画面へのリンク

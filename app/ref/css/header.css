@@ -24,8 +24,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
 }
 
 #logo img {
-    height: 55%;
-    width: 55%;
+    outline: none;
+    height: 55% !important;
+    width: 55% !important;
 }
 
 #header p {
@@ -49,7 +50,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
     font-size: 15px;
     box-sizing: border-box;
     height: 33px;
-    width:87%;
+    width:87%!important;
 }
 .search_button {
     box-sizing: border-box;
