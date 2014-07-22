@@ -127,7 +127,7 @@
                     $item_sum = $row['csum'];
                     //表示処理
 					echo '<div id="view">';
-                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a></div>';
+                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="100" height="100" /></a></div>';
                     echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
                     echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
                     echo '価格：' . $item_price . '<br />';
@@ -312,7 +312,7 @@
                     $item_sum = $cart['item_sum'];
                     //表示処理
 					echo '<div id="view">';
-                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="200" height="200" /></a></div>';
+                    echo '<div id="iimg"><a href="item.php?item_id=' . $item_id . '"><img src="' . ipath . $item_img . '" alt="' . $item_name . 'width="100" height="100" /></a></div>';
                     echo '<div id="stxt"><a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
                     echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
                     echo '価格：' . $item_price . '<br />';
@@ -412,6 +412,7 @@
 	echo '</div>';
     //パーツ導入
     require_once('ranking_menu.php');
+	require_once('pagetop.php');
     require_once('footer_menu.php');
 ?>
 </body>

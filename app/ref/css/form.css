@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : 2014/07/01, 10:50:03
     Author     : student
 */
+body{
+    margin: 0;
+    padding: 0;
+}
 #user_form h3{
     padding-left: 40px;
 }
@@ -16,23 +20,20 @@ and open the template in the editor.
 #user_form{
     font-family:'Lucida Grande','Hiragino Kaku Gothic ProN',
     Meiryo, sans-serif;
-    clear: both;
     font-size: 15px;
     border: 1px solid orange;
     border-radius: 8px;
     padding: 20px;
     margin-right: 500px;
     position: relative;
-    top: 93px;
+    top: 10px;
     left: 50px;
     bottom: 10px;
 }
 #user_form form{
     padding-left: 50px;
-    clear: both;
 }
 #user_form input {
-     clear: both;
      margin-top: 0;
 }
 .exampleText{
@@ -40,8 +41,4 @@ and open the template in the editor.
     color: gray;
     margin-top: -5px;
     margin-bottom: 2px;
-}
-
-#user_form .form_button {
-    margin-top: 8px;
 }

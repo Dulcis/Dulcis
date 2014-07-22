@@ -4,12 +4,12 @@
 オランゲ#FF8F22
 --------------------------*/
 body {
-    font-family: 'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-family:  sans-serif;
     margin: 0px;
     padding: 0px;
-	font-size:13px;
+	font-size:16px;
 	color:black;
-
+    
 }
 
 #page-top {
@@ -41,9 +41,8 @@ a {
 
 #main {
     max-width:100%;
-    min-height:500px;
     clear:both;
-    padding-bottom:50px;
+    margin-bottom:50px;
    
 }
 
@@ -93,6 +92,7 @@ a {
     float:right;
     width:80%;
     padding-left:10px;
+    background-image:url(../../view/info.html);
 }
 
 #ranking {
@@ -100,5 +100,9 @@ a {
     width:1000px;
     margin-left:auto;
     margin-right:auto;
-    padding-bottom:10px;
+    margin-bottom:10px;
+}
+
+#space {
+    height:30px;
 }

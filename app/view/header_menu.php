@@ -40,7 +40,7 @@
 			echo '<div id="logo">';
 			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
 
-			echo '<div id="box"><form id="form" action="item_select.php" method="POST" class="search_bar">';
+			echo '<div id="box" class="member_box"><p>ようこそ、ゲストさん</p><form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text"/>';
 				echo '<input type="submit" value="検索" class="search_button"/>';
 			echo '</form></div>';

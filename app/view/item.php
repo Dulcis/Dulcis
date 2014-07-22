@@ -106,7 +106,7 @@ echo '<div id="view">';
 				echo '<div id="stxt"><p>商品名：' . $item_name . '　　　ジャンル：' . $genre_name . '</p>';
 				echo '<p>税込み：' . $item_price . '円</p>';
 				echo '<p>残り：' . $item_sum . '個    <input type="submit" value="カートに入れる" /></p>';
-				echo '<p>数量：<input type="number" name="item_sum" min="1" max="10" value="1" /></p></div>';
+				echo '<p>数量：<input type="number" name="item_sum" min="1" max="99" value="1" /></p><br /></div>';
 
 				echo '<div id="ltxt"><hr><p>----商品詳細情報----<br />' . nl2br($item_co) . '<hr></p></div>';
 
@@ -114,6 +114,7 @@ echo '<div id="view">';
 		}
 		//パーツ導入
 		//require_once('ranking_menu.php');
+		require_once('pagetop.php');
 		require_once('footer_menu.php');
 	?>
 </body>

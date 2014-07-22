@@ -90,7 +90,7 @@
                     echo'<h4>電話番号</h4><input type="text" name="user_tel"  class="validate[required,custom[phone]]" /><br>';
                     echo'<h4>クレジットカード番号</h4><input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /><br>';
                     echo'<h4>有効期限</h4><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
-                    echo'<input type="submit" value="確認" name="fase1" class="form_button"/>';
+                    echo'<input type="submit" value="確認" name="fase1" />';
                     echo'</form>';
                     echo'<a href="index.php">トップへ戻る</a>';
                 } else if(isset($_POST['fase3'])) {
@@ -141,7 +141,7 @@
                 echo'<h4>電話番号</h4> <span class="exampleText">ハイフン(-)なし 例：0120000222</span><br> <input type="text" name="user_tel"  class="validate[required,custom[phone]]" /><br>';
                 echo'<h4>クレジットカード番号</h4> <span class="exampleText">ハイフン(-)なし</span><br> <input type="text" name="user_card" maxlength="16" class="validate[required,creditCard]" /><br>';
                 echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
-                echo'<input type="submit" value="確認" name="fase1"  class="form_button"/>';
+                echo'<input type="submit" value="確認" name="fase1" />';
             echo'</form>';
         }
         } else {
@@ -152,6 +152,7 @@
         //パーツ導入
         echo('</div>');
         //require_once('ranking_menu.php');
+		require_once('pagetop.php');
         require_once('footer_menu.php');
     ?>
 </body>

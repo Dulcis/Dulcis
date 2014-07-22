@@ -8,12 +8,12 @@
 </head>
 <body>
 <div id="footer">
-<a href="dulcis.html" TARGET="_blank">会社概要</a>
-<a href="newcustomer.html" TARGET="_blank">初めてのお客様へ</a>
-<a href="change.html" TARGET="_blank">交換や返品について</a>
-<a href="info.html" TARGET="_blank">採用情報</a>
-<a href="rules.html" TARGET="_blank">利用規約</a>
-<a href="q_and_a.html" TARGET="_blank">Q&A</a>
+<a href="dulcis.html" TARGET="_blank" style="text-decoration: none">会社概要</a>
+<a href="newcustomer.html" TARGET="_blank" style="text-decoration: none">初めてのお客様へ</a>
+<a href="change.html" TARGET="_blank" style="text-decoration: none">交換や返品について</a>
+<a href="info.html" TARGET="_blank" style="text-decoration: none">採用情報</a>
+<a href="rules.html" TARGET="_blank" style="text-decoration: none">利用規約</a>
+<a href="q_and_a.html" TARGET="_blank" style="text-decoration: none">Q&A</a>
 </div>
 </body>
 </html>

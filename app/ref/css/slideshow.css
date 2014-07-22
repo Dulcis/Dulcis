@@ -1,6 +1,7 @@
 
 #slideshow {
-    float:left;
+	position:relative;
+  
     height:350px;
     
 }
