@@ -72,7 +72,7 @@ echo '<div id="main">';
 					$first_flg = 1;
 					$old_date = $order_date;
 					
-					echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>';
+					echo '<a href="item.php?item_id=' . $item_id . '">' . $item_name . '</a>　';
 					echo '<a href="item_select.php?genre_id=' . $genre_id . '">' . $genre_name . '</a><br />';
 					echo '購入価格：' . $item_price . '円<br />';
 					echo '購入数量：' . $line_sum . '<br />';

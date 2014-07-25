@@ -71,7 +71,7 @@
                     echo'<input type="submit" value="変更" name="fase2" />';
                     echo'<input type="submit" value="登録" name="fase3" />';
                     echo'</form>';
-                    echo'<a href="index.php">トップへ戻る</a>';
+                    echo'<br><a href="index.php">トップへ戻る</a>';
                 } else if(isset($_POST['fase2']) || $flg == 1) {
                     //変更ボタンが押されたとき、または入力項目に誤りがあった場合
                     if($flg == 1) {
@@ -92,7 +92,7 @@
                     echo'<h4>有効期限</h4><input type="text" name="user_term" class="validate[required,custom[expirationDate]]" /><br>';
                     echo'<input type="submit" value="確認" name="fase1" />';
                     echo'</form>';
-                    echo'<a href="index.php">トップへ戻る</a>';
+                    echo'<br><a href="index.php">トップへ戻る</a>';
                 } else if(isset($_POST['fase3'])) {
                     //登録ボタンが押されたとき
                     //（※実装時はテーブル名の修正が必要）
@@ -146,7 +146,7 @@
         }
         } else {
             //ユーザがログイン状態であるとき（会員状態時）
-            echo '<p>既に会員であるため、この操作を行うことができません。</p>';
+            echo '<p>既に会員であるため、この操作を行うことができません。</p><br>';
             echo '<a href="index.php">トップへ戻る</a>';
         }
         //パーツ導入

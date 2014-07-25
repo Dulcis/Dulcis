@@ -1,10 +1,10 @@
 #header {
-	height: 80px;
-	padding-top:5px;
+	height: 110px;
+	padding-top:30px;
     padding-left:10px;
     padding-right:5px;
     clear: both;
-    color: #CCCCCC;
+    color: #9A9A9A;
     min-width: 1000px;
 background: rgb(255,255,255); /* Old browsers */
 background: -moz-linear-gradient(top,  #FEF8E3 40%, #FFF); /* FF3.6+ */
@@ -21,13 +21,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
     float:left;
     outline: none;
     box-sizing: border-box;
+    width:10%;
 }
 
-#logo img {
-    height: 55%;
-    width: 55%;
+/*#logo img {
+    outline: none;
+    height: 55% !important;
+    width: 55% !important;
 }
-
+*/
 #header p {
     font-size:16px;
     margin: 0px;
@@ -35,11 +37,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
 
 #header #box {
     float:left;
+    height: 110px;
     box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left:5%;
     padding-top: 33px;
-    width: 500px;
+    width: 50%;
     clear: right;
 }
 #header #box.member_box {
@@ -49,7 +51,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
     font-size: 15px;
     box-sizing: border-box;
     height: 33px;
-    width:87%;
+    width:80%;
 }
 .search_button {
     box-sizing: border-box;
@@ -59,7 +61,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
     font-weight: bold;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
     background-color: #5B626A;
-    width:13%;
+    width:50px;
     color: #FFF;
     border: medium none;
     border-top-right-radius: 5%;
@@ -68,20 +70,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
 .search_bar{
     box-sizing: border-box;
     display: inline;
-    width:auto;
-    height: 30px;
+    width:30%;
+    height: 33px;
     }
 
 
 #header #tab {
+	height: 110px;
+    padding-top:45px;
     box-sizing: border-box;
-    float:right;
-    padding-top: 40px;
+    width:35%;
+    float:left;
     display: inline;
     margin-right: 20px;
 }
 #header #tab a {
-	transition-property: border;
+transition-property:color;
 	transition-duration: 1s;
 	transition-delay: 0s;
     color:#FFF;
@@ -107,7 +111,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEF8E3', end
 }
 
 #header #tab a:hover {
-    transition-property: border;
+transition-property:color;
     transition-duration: 1s;
     transition-delay: 0s;
     color:#1C2535;

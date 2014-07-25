@@ -104,9 +104,9 @@ echo '<div id="view">';
 
 				echo '<div id="iimg"><img id="item" src="' . ipath . $item_img . '" alt="' . $item_name . '*/"width="200" height="200" /></div>';
 				echo '<div id="stxt"><p>商品名：' . $item_name . '　　　ジャンル：' . $genre_name . '</p>';
-				echo '<p>税込み：' . $item_price . '円</p>';
-				echo '<p>残り：' . $item_sum . '個    <input type="submit" value="カートに入れる" /></p>';
-				echo '<p>数量：<input type="number" name="item_sum" min="1" max="99" value="1" /></p><br /></div>';
+				echo '<p>価格(税込)：' . $item_price . '円</p>';
+				echo '<p>残り：' . $item_sum . '個</p>';
+				echo '<p>個数：<input type="number" name="item_sum" min="1" max="99" value="1" />   <input type="submit" value="カートに入れる" /></p><br /></div>';
 
 				echo '<div id="ltxt"><hr><p>----商品詳細情報----<br />' . nl2br($item_co) . '<hr></p></div>';
 

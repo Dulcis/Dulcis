@@ -17,37 +17,39 @@
 			//表示処理
 			echo '<div id="header">';
 			echo '<div id="logo">';
-			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
+			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis" width="165px" height="83px" ></a></div>';
 
 			//echo '<p>ようこそ' . $user_name . 'さん。  ';
 			//echo '保有ポイント:' . $user_pt .'</p>';
 
-			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント:' . $user_pt .'</p>';
+			echo '<div id="box" class="member_box"><p>ようこそ' . $user_name . 'さん。  保有ポイント： ' . $user_pt .'Pt</p>';
 			echo '<form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text""/>';
 				echo '<input type="submit" value="検索" class="search_button"/>';
 			echo '</form></div>';
 
-			echo '<div id="tab"><a href=buy_history.php>購入履歴</a>';
+			echo '<div id="tab"><a href=cart.php>カート</a>';
+			echo '<a href=buy_history.php>購入履歴</a>';
 			echo '<a href=user_info_edit.php>会員情報変更</a>';
-			echo '<a href=logout.php>ログアウト</a>';
-			echo '<a href=cart.php>カート</a></div>';
+			echo '<a href=logout.php>ログアウト</a></div>';
+			
 
 			echo '</div>';
 		} else {
 			//ログイン状態でない場合
 			echo '<div id="header">';
 			echo '<div id="logo">';
-			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis"></a></div>';
+			echo '<a href=index.php><img src="../ref/img/dul.png" alt="dulcis" width="165px" height="83px" ></a></div>';
 
 			echo '<div id="box" class="member_box"><p>ようこそ、ゲストさん</p><form id="form" action="item_select.php" method="POST" class="search_bar">';
 				echo '<input type="text" name="item_word" class="search_text"/>';
 				echo '<input type="submit" value="検索" class="search_button"/>';
 			echo '</form></div>';
 
-			echo '<div id="tab"><a href="login.php">ログイン</a>';
+			echo '<div id="tab"><a href="cart.php">カート</a>';
 			echo '<a href="user_entry.php">会員登録</a>';
-			echo '<a href="cart.php">カート</a></div>';
+			echo '<a href="login.php">ログイン</a></div>';
+			
 
 
 

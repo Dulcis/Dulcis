@@ -1,10 +1,11 @@
 <?php
 //データベースへの接続情報
 //ローカル側
-/*define('db_host', 'localhost');
+/*
+define('db_host', 'localhost');
 define('db_user', 'root');
 define('db_pass', '0202');
-define('db_name', 'test');
+define('db_name', 'prototype');
 */
 
 //サーバ側

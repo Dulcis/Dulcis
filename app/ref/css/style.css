@@ -11,6 +11,7 @@ body {
   overflow: hidden;
   float: left;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+    text-decoration:none;
 }
 .entry:hover img {
   right: 0px;

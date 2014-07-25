@@ -9,10 +9,10 @@
 <body>
 <div id="view">
 <div id="slideshow">
-    <img src="../ref/img/1.jpg" alt="Slideshow Image 1" class="active" />
-    <img src="../ref/img/2.jpg" alt="Slideshow Image 2" />
-    <img src="../ref/img/3.jpg" alt="Slideshow Image 3" />
-    <img src="../ref/img/4.jpg" alt="Slideshow Image 4" />
+    <img src="../ref/img/ssd1.jpg" alt="Slideshow Image 1" class="active" />
+    <img src="../ref/img/ssd2.jpg" alt="Slideshow Image 2" />
+    <img src="../ref/img/ssd3.jpg" alt="Slideshow Image 3" />
+    <img src="../ref/img/ssd4.jpg" alt="Slideshow Image 4" />
 </div>
 </div>
 

@@ -31,7 +31,7 @@
 				//表示処理
 				$genre_id = $row['gno'];
 				$genre_name = $row['gname'];
-				echo '<p><a href="item_select.php?genre_id=' .$genre_id.'" style="text-decoration: none">'.$genre_name.'</font></a></p>';
+				echo '<a href="item_select.php?genre_id=' .$genre_id.'" style="text-decoration: none"><p>'.$genre_name.'</p></font></a>';
 			}
 		}else{
 			//genreのセッションがある場合
@@ -40,7 +40,7 @@
 				$genre_id = $genre['genre_id'];
 				$genre_name =$genre['genre_name'];
 				
-				echo '<p><a href="item_select.php?genre_id=' .$genre_id.'" style="text-decoration: none">'.$genre_name.'</font></a></p>';
+				echo '<a href="item_select.php?genre_id=' .$genre_id.'" style="text-decoration: none"><p>'.$genre_name.'</p></font></a>';
 				//echo '<p><a href="item_select.php?genre_id=' .$genre_id.'"><font style="text-decoration: none">'.$genre_name.'</font></a></p>';
 			}
 		}

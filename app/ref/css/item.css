@@ -9,6 +9,10 @@
     padding-left:20px;
 }
 
+#stxt p {
+    padding-top:7px;
+}
+
 #ltxt {
     clear:both;
     font-size:14px;
