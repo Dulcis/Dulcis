@@ -69,7 +69,7 @@
                 echo'<h4>住所</h4>' . $user_add . '<input type="hidden" name="user_add" value="' . $user_add . '" /><br>';
                 echo'<h4>電話番号</h4>' . $user_tel . '<input type="hidden" name="user_tel" value="' . $user_tel . '" /><br>';
                 echo'<h4>クレジットカード番号</h4>' . $user_card . '<input type="hidden" name="user_card" value="' . $user_card . '" /><br>';
-                echo'<h4>有効期限</h4><br>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /><br>';
+                echo'<h4>有効期限</h4>' . $user_term . '<input type="hidden" name="user_term" value="' . $user_term . '" /><br>';
                 echo'<br><input type="submit" value="変更" name="fase2" />　';
                 echo'<input type="submit" value="確定" name="fase3" />';
                 echo'</form>';
@@ -86,14 +86,14 @@
                 echo '<form id="user_registration" action="user_info_edit.php" method="POST">';
                 echo '<input type="hidden" name="user_id" value="' . $user_id . '" > <input type="hidden" name="user_mail" id = "user_mail" value="' . $user_mailadd . '">';
                 echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /><br>';
-                echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
+                echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
                 echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /><br>';
                 echo '<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /><br>';
                 echo '<h4>郵便番号</h4> <span class="exampleText">ハイフン(-)なし 例：1600000</span><br> <input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /><br>';
                 echo '<h4>住所</h4><input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /><br>';
                 echo '<h4>電話番号</h4> <span class="exampleText">ハイフン(-)なし 例：0120000222</span><br> <input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /><br>';
                 echo '<h4>クレジットカード番号</h4> <span class="exampleText">ハイフン(-)なし</span><br> <input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /><br>';
-                echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '"  class="validate[required,custom[expirationUpdateDate]]" /><br>';
+                echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '"  class="validate[required,custom[expirationDate]]" /><br>';
                 echo'<input type="submit" value="確認" name="fase1" />';
                 echo'</form>';
                 //トップ画面へのリンク
@@ -200,14 +200,14 @@
             echo '<form id="user_registration" action="user_info_edit.php" method="POST">';
             echo '<input type="hidden" name="user_id" value="' . $user_id . '" > <input type="hidden" name="user_mail" id = "user_mail" value="' . $user_mailadd . '">';
             echo '<h4>名前</h4><input type="text" name="user_name" value="' . $user_name . '" maxlength="20" class="validate[required]" /><br>';
-            echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" value="' . $user_mailadd . '" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
+            echo '<h4>メールアドレス</h4><input type="text" name="user_mailadd" maxlength="40" class="validate[required,custom[email],ajax[ajaxMailUpdateCallPHP] text-input" /><br>';
             echo '<h4>パスワード</h4> <span class="exampleText">英数半角8文字以上15文字以内</span><br> <input type="password" name="user_pw" " maxlength="15" id="user_pw" class="validate[required,custom[password]]" /><br>';
             echo '<h4>パスワード（確認）</h4><input type="password" name="user_pwch" class="validate[required,equals[user_pw]]" /><br>';
             echo '<h4>郵便番号</h4> <span class="exampleText">ハイフン(-)なし 例：1600000</span><br> <input type="text" name="user_post" value="' . $user_post . '" maxlength="7" class="validate[required,custom[zip]]" /><br>';
             echo '<h4>住所</h4><input type="text" name="user_add" value="' . $user_add . '" class="validate[required]" /><br>';
             echo '<h4>電話番号</h4> <span class="exampleText">ハイフン(-)なし 例：0120000222</span><br> <input type="text" name="user_tel" value="' . $user_tel . '" class="validate[required,custom[phone]]" /><br>';
             echo '<h4>クレジットカード番号</h4> <span class="exampleText">ハイフン(-)なし</span><br> <input type="text" name="user_card" value="' . $user_card . '" maxlength="16" class="validate[required,creditCard]" /><br>';
-            echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '"  class="validate[required,custom[expirationUpdateDate]]" /><br>';
+            echo'<h4>有効期限</h4><span class="exampleText">月/年で入力 例：07/14</span><br><input type="text" name="user_term" value="' . $user_term . '"  class="validate[required,custom[expirationDate]]" /><br>';
             echo '<br><input type="submit" value="更新" name="fase1" />　';
             echo '<input type="submit" value="削除" name="fase4" />';
             echo '</form>';

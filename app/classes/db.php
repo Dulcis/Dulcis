@@ -14,5 +14,6 @@ define('db_user', 'user1');
 define('db_pass', '');
 define('db_name', 'prototype');
 
+
 $dbc = mysqli_connect(db_host, db_user, db_pass, db_name);
 ?>
